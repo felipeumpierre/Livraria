@@ -1,7 +1,7 @@
-/**
- * Created by felipeumpierre on 18/03/15.
- */
-public class Cliente {
+import java.util.ArrayList;
+
+public class Cliente
+{
     private String name, cpf, rg, phone;
     private ArrayList<Livro> livros = new ArrayList<Livro>();
 
@@ -55,11 +55,11 @@ public class Cliente {
 
     public ArrayList<Livro> getLivros()
     {
-        return livrosLivroArrayList;
+        return livros;
     }
 
-    public void setLivros( ArrayList<Livro> livrosLivroArrayList )
+    public void setLivros( ArrayList<Livro> livros )
     {
-        this.livrosLivroArrayList = livrosLivroArrayList;
+        this.livros = livros;
     }
 }

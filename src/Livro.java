@@ -1,6 +1,3 @@
-/**
- * Created by felipeumpierre on 18/03/15.
- */
 public class Livro
 {
     private String id, name, description;

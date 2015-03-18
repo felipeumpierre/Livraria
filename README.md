@@ -2,11 +2,11 @@
 Trabalho de Livraria em Java
 
 ## O que fazer?
-No trabalho anterior, foram criadas as classes Cliente e Livro, para um sistema de venda de livros online. Agora, você deve estender o sistema implementando as relações entre objetos para que seja possível realizar as seguintes tarefas:
+No trabalho anterior, foram criadas as classes classe.Cliente e classe.Livro, para um sistema de venda de livros online. Agora, você deve estender o sistema implementando as relações entre objetos para que seja possível realizar as seguintes tarefas:
 
 - Um cliente pode comprar vários livros na loja.
 - Um livro (exemplar) pode ser comprado por vários clientes.
-- Um Carrinho de Compras de um cliente possui vários livros.
+- Um classe.Carrinho de Compras de um cliente possui vários livros.
 - Um cliente pode efetuar várias compras.
 
 Não é preciso criar o “sistema” (ou seja, não é necessário um “main”, ou qualquer interface), no entanto, você deverá entregar:

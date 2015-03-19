@@ -14,7 +14,6 @@ public class Cliente extends ClienteRepo
     private String name;
     private String cpf;
     private String phone;
-    private ArrayList<Livro> livros = new ArrayList<Livro>();
 
     /**
      * Constructor for the class
@@ -88,16 +87,6 @@ public class Cliente extends ClienteRepo
     private void setPhone( String phone )
     {
         this.phone = phone;
-    }
-
-    public ArrayList<Livro> getLivros()
-    {
-        return livros;
-    }
-
-    public void setLivros( ArrayList<Livro> livros )
-    {
-        this.livros = livros;
     }
 
     /**

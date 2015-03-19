@@ -21,4 +21,14 @@ public class ClienteRepo
     {
         livroArrayList.remove( index );
     }
+
+    public ArrayList<Livro> getLivros()
+    {
+        return livroArrayList;
+    }
+
+    public String toString()
+    {
+        return livroArrayList.toString();
+    }
 }

@@ -26,9 +26,4 @@ public class ClienteRepo
     {
         return livroArrayList;
     }
-
-    public String toString()
-    {
-        return livroArrayList.toString();
-    }
 }

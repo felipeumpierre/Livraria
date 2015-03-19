@@ -9,34 +9,10 @@ public class Livro
 {
     private int id;
     private String title, author, publisher;
-    private short edition;
+    private String edition;
     private String isbn, language;
     private int year;
     private String resume;
-
-    /**
-     * Constructor for the class
-     *
-     * @param title String
-     * @param author String
-     * @param publisher String
-     * @param edition short
-     * @param isbn String
-     * @param language String
-     * @param year int
-     * @param resume String
-     */
-    public Livro( String title, String author, String publisher,short edition, String isbn, String language, int year, String resume )
-    {
-        this.setTitle( title );
-        this.author = author;
-        this.publisher = publisher;
-        this.edition = edition;
-        this.isbn = isbn;
-        this.language = language;
-        this.year = year;
-        this.resume = resume;
-    }
 
     /**
      * Constructor for the class
@@ -45,13 +21,13 @@ public class Livro
      * @param title String
      * @param author String
      * @param publisher String
-     * @param edition short
+     * @param edition String
      * @param isbn String
      * @param language String
      * @param year int
      * @param resume String
      */
-    public Livro( int id, String title, String author, String publisher, short edition, String isbn, String language, int year, String resume )
+    public Livro( int id, String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
     {
         this.id = id;
         this.title = title;
@@ -112,9 +88,9 @@ public class Livro
     /**
      * Get edition
      *
-     * @return short
+     * @return String
      */
-    public short getEdition()
+    public String getEdition()
     {
         return edition;
     }
@@ -122,9 +98,9 @@ public class Livro
     /**
      * Set edition
      *
-     * @param edition short
+     * @param edition String
      */
-    public void setEdition( short edition )
+    public void setEdition( String edition )
     {
         this.edition = edition;
     }
@@ -255,9 +231,17 @@ public class Livro
      * @return String
      */
     @Override
-    public String toString() {
-
-        return this.title;
+    public String toString()
+    {
+        return "\tID: " + this.getId() + "\n" +
+                "\tAutor: " + this.getAuthor() + "\n" +
+                "\tEdição: " + this.getEdition() + "\n" +
+                "\tISBN: " + this.getIsbn() + "\n" +
+                "\tLinguagem: " + this.getLanguage() + "\n" +
+                "\tPublisher: " + this.getPublisher() + "\n" +
+                "\tTítulo: " + this.getTitle() + "\n" +
+                "\tAno: " + this.getYear() + "\n" +
+                "\tResumo: " + this.getResume() + "\n" +
+                "\t----";
     }
-
 }

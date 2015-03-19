@@ -10,4 +10,9 @@ public class Carrinho
     {
         clienteArrayList.add( cliente );
     }
+
+    public ArrayList<Cliente> getCompras()
+    {
+        return clienteArrayList;
+    }
 }

@@ -3,6 +3,11 @@ package repositorio;
 import classe.Livro;
 import java.util.ArrayList;
 
+/**
+ * Helper to manipulate the ArrayList
+ * 
+ * @author Felipe Pieretti Umpierre <umpierre.felipe@gmal.com>
+ */
 public class ClienteRepo
 {
     /**

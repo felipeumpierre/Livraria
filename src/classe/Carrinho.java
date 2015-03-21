@@ -3,21 +3,21 @@ package classe;
 import java.util.ArrayList;
 
 /**
- * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
+ * Manipulate clients from or to cart
  * 
- * Classe para manipulação de clientes no carrinho de compra.
+ * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
 public class Carrinho
 {
     /**
-     * Inicializa o ArrayList<Cliente> na classe
+     * Initialize the ArrayList<Cliente>
      */
     private ArrayList<Cliente> clienteArrayList = new ArrayList<Cliente>();
 
     /**
-     * Função para adicionar um novo cliente no carrinho
+     * Method that add a new client to the cart
      * 
-     * @param cliente Cliente Objeto cliente
+     * @param cliente Cliente Cliente object
      */
     public void addCliente( Cliente cliente )
     {
@@ -25,7 +25,7 @@ public class Carrinho
     }
 
     /**
-     * Função para retornar o arry com todos os clientes adicionados no carrinho
+     * Method that return all the clients add in the ArrayList
      * 
      * @return ArrayList<Cliente>
      */

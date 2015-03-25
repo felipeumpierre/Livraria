@@ -13,6 +13,7 @@ public class Carrinho
      * Initialize the ArrayList<Cliente>
      */
     private ArrayList<Cliente> clienteArrayList = new ArrayList<Cliente>();
+	private ArrayList<Item> itemArrayList = new ArrayList<Item>();
 
     /**
      * Method that add a new client to the cart
@@ -24,13 +25,10 @@ public class Carrinho
         clienteArrayList.add( cliente );
     }
 
-    /**
-     * Method that return all the clients add in the ArrayList
-     * 
-     * @return ArrayList<Cliente>
-     */
-    public ArrayList<Cliente> getCompras()
-    {
-        return clienteArrayList;
-    }
+	public void addItem( Item item )
+	{
+		itemArrayList.add( item );
+	}
+
+
 }

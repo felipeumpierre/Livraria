@@ -5,9 +5,8 @@ package classe;
  *
  * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
-public class Livro
+public class Livro extends Item
 {
-    private int id;
     private String title, author, publisher;
     private String edition;
     private String isbn, language;
@@ -17,7 +16,6 @@ public class Livro
     /**
      * Constructor for the class
      *
-     * @param id int
      * @param title String
      * @param author String
      * @param publisher String
@@ -27,9 +25,8 @@ public class Livro
      * @param year int
      * @param resume String
      */
-    public Livro( int id, String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
+    public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
     {
-        this.id = id;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -126,26 +123,6 @@ public class Livro
     }
 
     /**
-     * Get id
-     *
-     * @return int
-     */
-    public int getId()
-    {
-        return id;
-    }
-
-    /**
-     * Set id
-     *
-     * @param id int
-     */
-    public void setId( int id )
-    {
-        this.id = id;
-    }
-
-    /**
      * Get language
      *
      * @return String
@@ -233,8 +210,7 @@ public class Livro
     @Override
     public String toString()
     {
-        return "\tID: " + this.getId() + "\n" +
-                "\tAutor: " + this.getAuthor() + "\n" +
+        return  "\tAutor: " + this.getAuthor() + "\n" +
                 "\tEdição: " + this.getEdition() + "\n" +
                 "\tISBN: " + this.getIsbn() + "\n" +
                 "\tLinguagem: " + this.getLanguage() + "\n" +

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
-public class Cliente extends ClienteRepo
+public class Cliente
 {
     private String name;
     private String cpf;

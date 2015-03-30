@@ -5,19 +5,16 @@ package classe;
  *
  * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
-public class Livro
+public class Livro extends Item
 {
-    private int id;
-    private String title, author, publisher;
+    private String author, publisher;
     private String edition;
     private String isbn, language;
-    private int year;
     private String resume;
 
     /**
      * Constructor for the class
      *
-     * @param id int
      * @param title String
      * @param author String
      * @param publisher String
@@ -27,9 +24,8 @@ public class Livro
      * @param year int
      * @param resume String
      */
-    public Livro( int id, String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
+    public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
     {
-        this.id = id;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -43,26 +39,6 @@ public class Livro
     public Livro()
     {
         // do nothing
-    }
-
-    /**
-     * Get year
-     *
-     * @return int
-     */
-    public int getYear()
-    {
-        return year;
-    }
-
-    /**
-     * Set year
-     *
-     * @param year int
-     */
-    public void setYear( int year )
-    {
-        this.year = year;
     }
 
     /**
@@ -126,26 +102,6 @@ public class Livro
     }
 
     /**
-     * Get id
-     *
-     * @return int
-     */
-    public int getId()
-    {
-        return id;
-    }
-
-    /**
-     * Set id
-     *
-     * @param id int
-     */
-    public void setId( int id )
-    {
-        this.id = id;
-    }
-
-    /**
      * Get language
      *
      * @return String
@@ -206,26 +162,6 @@ public class Livro
     }
 
     /**
-     * Get title
-     *
-     * @return String
-     */
-    public String getTitle()
-    {
-        return title;
-    }
-
-    /**
-     * Set title
-     *
-     * @param title String
-     */
-    public void setTitle( String title )
-    {
-        this.title = title;
-    }
-
-    /**
      * Return String with all the informations from the object
      *
      * @return String
@@ -233,8 +169,7 @@ public class Livro
     @Override
     public String toString()
     {
-        return "\tID: " + this.getId() + "\n" +
-                "\tAutor: " + this.getAuthor() + "\n" +
+        return  "\tAutor: " + this.getAuthor() + "\n" +
                 "\tEdição: " + this.getEdition() + "\n" +
                 "\tISBN: " + this.getIsbn() + "\n" +
                 "\tLinguagem: " + this.getLanguage() + "\n" +

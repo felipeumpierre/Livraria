@@ -3,7 +3,7 @@ package classe;
 /**
  * Class that will manage the object classe.Livro
  *
- * @author Felipe <umpierre.felipe@gmail.com>
+ * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
 public class Livro
 {

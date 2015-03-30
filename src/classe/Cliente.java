@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Class that will manage the object classe.Cliente
  *
- * @author Felipe <umpierre.felipe@gmail.com>
+ * @author Felipe Pieretti Umpierre <umpierre.felipe@gmail.com>
  */
 public class Cliente extends ClienteRepo
 {

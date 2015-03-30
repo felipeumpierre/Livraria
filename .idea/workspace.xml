@@ -26,6 +26,9 @@
     <favorites_list name="Livraria" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf />
+=======
     <leaf>
       <file leaf-file-name="Livro.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classe/Livro.java">
@@ -152,6 +155,7 @@
         </entry>
       </file>
     </leaf>
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -199,6 +203,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -288,8 +293,12 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
   </component>
   <component name="RunManager" selected="Application.main">
     <configuration default="false" name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -489,7 +498,11 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
+<<<<<<< HEAD
+    <configuration />
+=======
     <configuration>C:\Users\Felipe\AppData\Roaming\Subversion</configuration>
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -501,8 +514,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1257" height="1040" extended-state="0" />
+<<<<<<< HEAD
+    <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
     <editor active="false" />
+=======
+    <frame x="0" y="0" width="1257" height="1040" extended-state="0" />
+<<<<<<< HEAD
+    <editor active="false" />
+=======
+    <editor active="true" />
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
+>>>>>>> 01b22dbcc22555f20be848452f45cacdd41995f5
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -517,9 +539,20 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21756648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
+>>>>>>> 01b22dbcc22555f20be848452f45cacdd41995f5
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -557,6 +590,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/classe/Livro.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="3684" max-vertical-offset="4284">
           <caret line="235" column="47" selection-start-line="235" selection-start-column="47" selection-end-line="235" selection-end-column="47" />
           <folding>
@@ -669,6 +703,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classe/Livro.java">
       <provider selected="true" editor-type-id="text-editor">
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="750">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Livro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15699334" vertical-offset="0" max-vertical-offset="1051">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+=======
+>>>>>>> 01b22dbcc22555f20be848452f45cacdd41995f5
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -894,6 +948,7 @@
             <element signature="e#3566#3567#0" expanded="true" />
             <element signature="e#3600#3601#0" expanded="true" />
           </folding>
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
         </state>
       </provider>
     </entry>
@@ -933,13 +988,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/repositorio/ClienteRepo.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.28239202" vertical-offset="0" max-vertical-offset="903">
           <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.38534728" vertical-offset="0" max-vertical-offset="1051">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+=======
+        <state vertical-scroll-proportion="0.71308726" vertical-offset="0" max-vertical-offset="596">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+>>>>>>> 01b22dbcc22555f20be848452f45cacdd41995f5
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#460#461#0" expanded="true" />
             <element signature="e#497#498#0" expanded="true" />
           </folding>
+>>>>>>> 375378e7c8eaaaead0627040d1326f30aa76b7e2
         </state>
       </provider>
     </entry>

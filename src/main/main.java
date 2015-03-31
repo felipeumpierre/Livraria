@@ -24,7 +24,7 @@ public class main
         item.addItem( new Livro( "livro #1", "author", "publisher", "ABC", "1234AVC", "pt_BR", 2015, "Resume" ) );
         item.addItem( new Livro( "livro #2", "author", "publisher", "ABC", "1234AVC", "pt_BR", 2015, "Resume" ) );
         item.addItem( new Dvd( "Interstellar", 2014 ) );
-        item.addItem( new Eletronico( "Leito de DVD", 2010, 120 ) );
+        item.addItem( new Eletronico( "Leitor de DVD", 2010, 120 ) );
         
         CarrinhoRepo carrinho = new CarrinhoRepo();
         carrinho.addCliente( cliente.getClient( 0 ) );

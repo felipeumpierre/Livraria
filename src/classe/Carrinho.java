@@ -8,26 +8,51 @@ public class Carrinho
 	private ArrayList<Item> itemArrayList = new ArrayList<Item>();
 	private int status = 0; // 0 - carrinho, 1 - compra finalizada
 
+	/**
+	 * Add a Client to the ArrayList<Cliente>
+	 * 
+	 * @param cliente Cliente instance of Cliente
+	 */
     public void addCliente( Cliente cliente )
     {
         clienteArrayList.add( cliente );
     }
 
+    /**
+     * Add a Item to the ArrayList<Item>
+     * 
+     * @param item Item instance of Item
+     */    
 	public void addItem( Item item )
 	{
 		itemArrayList.add( item );
 	}
 		
+	/**
+	 * Get the status from the Cart
+	 * 
+	 * @return int
+	 */
 	public int getStatus() 
 	{
 		return status;
 	}
 
+	/**
+	 * Set the status from the Cart
+	 * 
+	 * @param status int
+	 */
 	public void setStatus( int status )
 	{
 		this.status = status;
 	}
 	
+	/**
+	 * Get the String format representation of the status
+	 * 
+	 * @return String
+	 */
 	public String getStatusString()
 	{
 		return ( this.getStatus() == 0 ) ? "Aberto" : "Finalizado";
@@ -36,7 +61,6 @@ public class Carrinho
 	@Override
 	public String toString()
 	{
-		String leftAlignFormat = "| %-19s | %-13s | %-14s |%n";
 		String leftAlignStatusCartFormat = "| %-30s | %-11s |%n";
 		
 		System.out.format( "+--------------------------------+-------------+%n" );

@@ -21,7 +21,7 @@ public class main
         ClienteRepo cliente = new ClienteRepo();        
 			        cliente.addClient( new Cliente( "Felipe Umpierre", "123456", "123456" ) );
 			        cliente.addClient( new Cliente( "Eduardo Umpierre", "123456", "123456" ) );
-        System.out.println( cliente.getClients() );
+        cliente.getClients();
         
 		
         System.out.println( "Criando itens" );

@@ -46,11 +46,21 @@ public class Item
         this.year = year;
     }
 
+    /**
+     * Get stock from item
+     * 
+     * @return int
+     */
 	public int getStock()
 	{
 		return stock;
 	}
 
+	/**
+	 * Set stock
+	 * 
+	 * @param stock int
+	 */
 	public void setStock( int stock )
 	{
 		this.stock = stock;

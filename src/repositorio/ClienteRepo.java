@@ -18,26 +18,42 @@ public class ClienteRepo
 		clienteArrayList = new ArrayList<Cliente>();
 	}
 
+	/**
+	 * Add a new client to the ArrayList
+	 * 
+	 * @param cliente Cliente instance of Cliente
+	 * @return boolean
+	 */
 	public boolean addClient( Cliente cliente )
 	{
 		return clienteArrayList.add( cliente );
 	}
 
+	/**
+	 * Get info from a Client by the index
+	 * 
+	 * @param index int index of the ArrayList
+	 * @return 
+	 */
 	public Cliente getClient( int index )
 	{
 		return clienteArrayList.get( index );
 	}
 	
-	public String getClients()
+	/**
+	 * Get the list from all the Clients
+	 * 
+	 * @return String
+	 */
+	public void getClients()
 	{
 		for( Cliente cli: clienteArrayList )
 		{
 			cli.toString();
 		}
-		
-		return "";
 	}
 	
+	@Override
 	public String toString()
 	{
 		return clienteArrayList.toString();

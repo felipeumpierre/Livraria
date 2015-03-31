@@ -26,14 +26,14 @@ public class Livro extends Item
      */
     public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
     {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
-        this.edition = edition;
-        this.isbn = isbn;
-        this.language = language;
-        this.year = year;
-        this.resume = resume;
+        this.setTitle( title );
+        this.setAuthor( author );
+        this.setPublisher( publisher );
+        this.setEdition( edition );
+        this.setIsbn( isbn );
+        this.setLanguage( language );
+        this.setYear( year );
+        this.setResume( resume );
     }
 
     public Livro()
@@ -169,14 +169,13 @@ public class Livro extends Item
     @Override
     public String toString()
     {
-        return  "\tAutor: " + this.getAuthor() + "\n" +
-                "\tEdiÃ§Ã£o: " + this.getEdition() + "\n" +
+        return  "\n\tAutor: " + this.getAuthor() + "\n" +
+                "\tEdição: " + this.getEdition() + "\n" +
                 "\tISBN: " + this.getIsbn() + "\n" +
                 "\tLinguagem: " + this.getLanguage() + "\n" +
                 "\tPublisher: " + this.getPublisher() + "\n" +
-                "\tTÃ­tulo: " + this.getTitle() + "\n" +
+                "\tTítulo: " + this.getTitle() + "\n" +
                 "\tAno: " + this.getYear() + "\n" +
-                "\tResumo: " + this.getResume() + "\n" +
-                "\t----";
+                "\tResumo: " + this.getResume() + "\n";
     }
 }

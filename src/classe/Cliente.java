@@ -97,10 +97,8 @@ public class Cliente
     @Override
     public String toString()
     {
-        return "----\n" +
-                "Nome: " + this.getName() + "\n" +
-                "CPF: " + this.getCpf() + "\n" +
-                "Telefone: " + this.getPhone() + "\n" +
-                "----";
+        return  "\tNome: " + this.getName() + "\n" +
+                "\tCPF: " + this.getCpf() + "\n" +
+                "\tTelefone: " + this.getPhone();
     }
 }

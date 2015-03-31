@@ -20,10 +20,31 @@ public class CarrinhoRepo
 
 	public void addItem( Item item )
 	{
-		carrinho.addItem( item );
+		if( item.getStock() > 0 )
+		{
+			carrinho.addItem( item );
+			
+			item.setStock( ( item.getStock() - 1 ) );
+		}
 	}
 	
-	public void finish()
+	public void payment( Pagamento pagamento )
+	{
+		if( pagamento instanceof Cartao )
+		{
+			System.out.println( "Realizando pagamento...." );
+			System.out.println( "Verificando dados do cartão...." );
+			this.finish();
+			System.out.println( "Pagamento realizado com sucesso!\n" );
+		}
+		else if( pagamento instanceof Boleto )
+		{
+			System.out.println( "Realizando pagamento...." );
+			System.out.println( "Pagamento por boleto desabilitado.\n" );
+		}
+	}
+	
+	private void finish()
 	{
 		carrinho.setStatus( 1 );
 	}
@@ -38,13 +59,8 @@ public class CarrinhoRepo
 		return "O carrinho não está aberto.";
 	}
 	
-	public String getClosedCart()
+	public String getCart()
 	{
-		if( carrinho.getStatus() == 1 )
-		{
-			return carrinho.toString();
-		}
-		
-		return "O carrinho não está concluído";
+		return carrinho.toString();
 	}
 }

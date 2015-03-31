@@ -4,6 +4,7 @@ public class Item
 {
     private int year;
     private String title;
+    private int stock;
 
     /**
      * Get title
@@ -44,4 +45,14 @@ public class Item
     {
         this.year = year;
     }
+
+	public int getStock()
+	{
+		return stock;
+	}
+
+	public void setStock( int stock )
+	{
+		this.stock = stock;
+	}    
 }

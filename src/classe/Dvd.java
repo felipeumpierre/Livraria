@@ -4,10 +4,11 @@ public class Dvd extends Item
 {
 	private String leftAlignFormat = "| %-12s | %-30s | %-4s | %-69s |%n";
 	
-    public Dvd( String title, int year )
+    public Dvd( String title, int year, int stock )
     {
     	this.setTitle( title );
     	this.setYear( year );
+    	this.setStock( stock );
     }
     
     @Override

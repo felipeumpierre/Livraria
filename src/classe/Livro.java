@@ -25,7 +25,7 @@ public class Livro extends Item
      * @param year int
      * @param resume String
      */
-    public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume )
+    public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume, int stock )
     {
         this.setTitle( title );
         this.setAuthor( author );
@@ -35,6 +35,7 @@ public class Livro extends Item
         this.setLanguage( language );
         this.setYear( year );
         this.setResume( resume );
+        this.setStock( stock );
     }
 
     public Livro()

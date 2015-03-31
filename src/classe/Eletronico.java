@@ -5,11 +5,12 @@ public class Eletronico extends Item
     private int voltage;
     private String leftAlignFormat = "| %-12s | %-30s | %-4s | %-6s | %-60s |%n";
     
-    public Eletronico( String title, int year, int voltage )
+    public Eletronico( String title, int year, int voltage, int stock )
     {
     	this.setTitle( title );
     	this.setYear( year );
     	this.setVoltage( voltage );
+    	this.setStock( stock );
     }
 
 	public int getVoltage()

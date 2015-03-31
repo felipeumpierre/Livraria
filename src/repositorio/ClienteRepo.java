@@ -1,6 +1,7 @@
 package repositorio;
 
 import classe.Cliente;
+
 import java.util.ArrayList;
 
 /**
@@ -25,6 +26,16 @@ public class ClienteRepo
 	public Cliente getClient( int index )
 	{
 		return clienteArrayList.get( index );
+	}
+	
+	public String getClients()
+	{
+		for( Cliente cli: clienteArrayList )
+		{
+			cli.toString();
+		}
+		
+		return "";
 	}
 	
 	public String toString()

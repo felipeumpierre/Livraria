@@ -25,7 +25,7 @@ public class Eletronico extends Item
     
     public String toString()
     {
-    	System.out.printf( leftAlignFormat, "Eletrônico", this.getTitle(), this.getYear(), this.getVoltage(), "" );
+    	System.out.printf( leftAlignFormat, "EletrÃ´nico", this.getTitle(), this.getYear(), this.getVoltage(), "" );
     	
     	return "";
     }

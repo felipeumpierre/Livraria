@@ -2,8 +2,6 @@ package repositorio;
 
 import classe.*;
 
-import java.util.ArrayList;
-
 public class CarrinhoRepo
 {
 	private Carrinho carrinho;
@@ -33,7 +31,7 @@ public class CarrinhoRepo
 		if( pagamento instanceof Cartao )
 		{
 			System.out.println( "Realizando pagamento...." );
-			System.out.println( "Verificando dados do cart„o...." );
+			System.out.println( "Verificando dados do cart√£o...." );
 			this.finish();
 			System.out.println( "Pagamento realizado com sucesso!\n" );
 		}
@@ -56,7 +54,7 @@ public class CarrinhoRepo
 			return carrinho.toString();
 		}
 		
-		return "O carrinho n„o est· aberto.";
+		return "O carrinho n√£o est√° aberto.";
 	}
 	
 	public String getCart()

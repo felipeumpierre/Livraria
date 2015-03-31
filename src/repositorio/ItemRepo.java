@@ -21,4 +21,14 @@ public class ItemRepo
     {
         return itemArrayList.get( index );
     }
+    
+    public String getItens()
+    {
+    	for( Item item: itemArrayList )
+    	{
+    		item.toString();
+    	}
+    	
+    	return "";
+    }
 }

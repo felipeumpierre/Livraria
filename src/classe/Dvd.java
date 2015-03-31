@@ -2,6 +2,8 @@ package classe;
 
 public class Dvd extends Item
 {
+	private String leftAlignFormat = "| %-12s | %-30s | %-4s | %-69s |%n";
+	
     public Dvd( String title, int year )
     {
     	this.setTitle( title );
@@ -11,9 +13,8 @@ public class Dvd extends Item
     @Override
     public String toString()
     {
-    	return "\nDvd: \n" + 
-    			"\tTítulo: " + this.getTitle() + "\n" +
-    			"\tAno: " + this.getYear()
-    			;
+    	System.out.printf( this.leftAlignFormat, "DVD", this.getTitle(), this.getYear(), "" );
+    	
+    	return "";
     }
 }

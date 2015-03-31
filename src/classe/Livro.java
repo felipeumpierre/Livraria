@@ -11,6 +11,7 @@ public class Livro extends Item
     private String edition;
     private String isbn, language;
     private String resume;
+    private String leftAlignFormat = "| %-12s | %-30s | %-4s | %-6s | %-5s | %-9s | %-11s | %-5s | %-15s |%n";
 
     /**
      * Constructor for the class
@@ -160,7 +161,21 @@ public class Livro extends Item
     {
         this.resume = resume;
     }
+    
+    public void getHeader()
+    {	
+    	System.out.format( "+----------------------------------------------------------------------------------------------------+%n" );
+    	System.out.printf( "| Livro                                                                                              |%n" );
+    	System.out.format( "+------------------------+--------+--------+---------+-----------+-------------+----------+-----------------+%n" );
+		System.out.printf( "| Título                 | Ano    | Edição | ISBN    | Linguagem | Editora     |  Author  | Resumo          |%n" );
+		System.out.format( "+------------------------+--------+--------+---------+-----------+-------------+----------+-----------------+%n" );
+    }
 
+    public void getFooter()
+    {
+    	System.out.format( "+-----------------+-----------+--------+---------+-----------+-------------+-------+-----------------+%n" );
+    }
+    
     /**
      * Return String with all the informations from the object
      *
@@ -168,14 +183,9 @@ public class Livro extends Item
      */
     @Override
     public String toString()
-    {
-        return  "\n\tAutor: " + this.getAuthor() + "\n" +
-                "\tEdição: " + this.getEdition() + "\n" +
-                "\tISBN: " + this.getIsbn() + "\n" +
-                "\tLinguagem: " + this.getLanguage() + "\n" +
-                "\tPublisher: " + this.getPublisher() + "\n" +
-                "\tTítulo: " + this.getTitle() + "\n" +
-                "\tAno: " + this.getYear() + "\n" +
-                "\tResumo: " + this.getResume() + "\n";
+    {	
+		System.out.printf( this.leftAlignFormat, "Livro", this.getTitle(), this.getYear(), this.getEdition(), this.getIsbn(), this.getLanguage(), this.getPublisher(), this.getAuthor(), this.getResume() );
+		
+		return "";
     }
 }

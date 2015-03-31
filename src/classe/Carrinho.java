@@ -27,13 +27,46 @@ public class Carrinho
 	{
 		this.status = status;
 	}
+	
+	public String getStatusString()
+	{
+		return ( this.getStatus() == 0 ) ? "Aberto" : "Finalizado";
+	}
 
 	@Override
 	public String toString()
 	{
-		return "Carrinho: " + this.getStatus() + "\n"
-				+ "Cliente: \n" + clienteArrayList.toString() + "\n"
-				+ "\tItens: \n"
-				+ itemArrayList.toString();
+		String leftAlignFormat = "| %-19s | %-13s | %-14s |%n";
+		String leftAlignStatusCartFormat = "| %-38s | %-11s |%n";
+		
+		System.out.format( "+----------------------------------------+-------------+%n" );
+		System.out.printf( leftAlignStatusCartFormat, "Status do carrinho", this.getStatusString()  );		
+		System.out.format( "+----------------------------------------+-------------+%n\n" );
+		
+			System.out.format( "+------------------------------------------------------+%n" );
+			System.out.printf( "| Dados do cliente                                     |%n" );
+			System.out.format( "+---------------------+---------------+----------------+%n" );
+			System.out.printf( "| Nome                | CPF           | Telefone       |%n" );
+			System.out.format( "+---------------------+---------------+----------------+%n" );
+			
+			for( Cliente cli: clienteArrayList )
+			{
+				System.out.printf( leftAlignFormat, cli.getName(), cli.getCpf(), cli.getPhone() );
+			}
+			
+			System.out.format( "+---------------------+---------------+----------------+%n\n" );
+		
+		System.out.format( "+------------------------------------------------------------------------------------------------------------------------------+%n" );
+		System.out.printf( "| %-124s |%n", "Produtos" );
+		System.out.format( "+--------------+--------------------------------+------+--------+---------+-----------+-------------+--------+-----------------+%n" );
+		
+			for( Item item: itemArrayList )
+			{
+				item.toString();
+			}
+		
+		System.out.format( "+--------------+--------------------------------+------+--------+---------+-----------+-------------+--------+-----------------+%n" );
+		
+		return "";
 	}
 }

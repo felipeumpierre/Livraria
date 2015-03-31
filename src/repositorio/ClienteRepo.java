@@ -26,4 +26,9 @@ public class ClienteRepo
 	{
 		return clienteArrayList.get( index );
 	}
+	
+	public String toString()
+	{
+		return clienteArrayList.toString();
+	}
 }

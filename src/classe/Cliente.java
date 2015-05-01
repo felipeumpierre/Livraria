@@ -1,9 +1,5 @@
 package classe;
 
-import repositorio.ClienteRepo;
-
-import java.util.ArrayList;
-
 /**
  * Class that will manage the object classe.Cliente
  *

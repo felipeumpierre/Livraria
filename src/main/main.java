@@ -23,7 +23,7 @@ public class main
 			        cliente.addClient( new Cliente( "Eduardo Umpierre", "123456", "123456" ) );
         cliente.getClients();
         
-		
+		System.out.println( "---" );
         System.out.println( "Criando itens" );
         // Itens
         ItemRepo item = new ItemRepo();

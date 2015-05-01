@@ -22,7 +22,7 @@ public class Livro extends Item
      * @param edition String
      * @param isbn String
      * @param language String
-     * @param year int
+     * @param year integer
      * @param resume String
      */
     public Livro( String title, String author, String publisher, String edition, String isbn, String language, int year, String resume, int stock )
@@ -168,7 +168,7 @@ public class Livro extends Item
     	System.out.format( "+----------------------------------------------------------------------------------------------------+%n" );
     	System.out.printf( "| Livro                                                                                              |%n" );
     	System.out.format( "+------------------------+--------+--------+---------+-----------+-------------+----------+-----------------+%n" );
-		System.out.printf( "| Título                 | Ano    | Edição | ISBN    | Linguagem | Editora     |  Author  | Resumo          |%n" );
+		System.out.printf( "| TÃ­tulo                 | Ano    | EdiÃ§Ã£o | ISBN    | Linguagem | Editora     |  Author  | Resumo          |%n" );
 		System.out.format( "+------------------------+--------+--------+---------+-----------+-------------+----------+-----------------+%n" );
     }
 

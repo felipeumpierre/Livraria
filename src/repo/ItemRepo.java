@@ -1,6 +1,7 @@
 package repo;
 
-import java.util.ArrayList;
+import list.DoubleLinkedList;
+import list.DoubleLinkedListException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,26 +16,26 @@ public class ItemRepo
 	Map<String, String> divisors = new HashMap<String, String>();
 	Map<String, String> none = new HashMap<String, String>();
 	
-	private ArrayList<Item> items;
+	private DoubleLinkedList<Item> items;
 	private int id = 1;
 	
 	public ItemRepo()
 	{
-		items = new ArrayList<Item>();
+		items = new DoubleLinkedList<Item>();
 		
-		header.put( "item", String.format( "|  %-2s | %-21s", "#", "Item" ) );
+		header.put( "item", String.format( "| %-2s | %-21s", "#", "Item" ) );
 		header.put( "book", String.format( "| %-6s |%n", "ISBN" ) );
 		header.put( "eletronic", String.format( "| %-15s |%n", "Marca" ) );
-		header.put( "dvd", String.format( "| %-15s | %-4s |%n", "Gênero", "Ano" ) );
+		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "Gênero", "Ano" ) );
 		
-		divisors.put( "item", String.format( "+------+-------------------------------------------------------------------------------------------------" ) );
-		divisors.put( "book", String.format( "+-----------------+--------+%n" ) );
+		divisors.put( "item", String.format( "+----+----------------------" ) );
+		divisors.put( "book", String.format( "+--------+%n" ) );
 		divisors.put( "eletronic", String.format( "+-----------------+%n" ) );
 		divisors.put( "dvd", String.format( "+---------------------+------+%n" ) );
 		
-		none.put( "book", String.format( "| %-53s |%n", "Nenhum livro foi encontrado" ) );
+		none.put( "book", String.format( "| %-34s |%n", "Nenhum livro foi encontrado" ) );
 		none.put( "eletronic", String.format( "| %-44s |%n", "Nenhum eletrônico foi encontrado" ) );
-		none.put( "dvd", String.format( "| %-48s |%n", "Nenhum dvd foi encontrado" ) );
+		none.put( "dvd", String.format( "| %-54s |%n", "Nenhum dvd foi encontrado" ) );
 		
 		populate();
 	}
@@ -43,8 +44,16 @@ public class ItemRepo
 	{
 		if( null != item )
 		{
-			item.setId( this.id );		
-			items.add( item );
+			item.setId( this.id );
+			
+			try
+			{
+				items.insertFirst( item );
+			}
+			catch( DoubleLinkedListException d )
+			{
+				
+			}
 			
 			this.id++;
 		}
@@ -52,13 +61,22 @@ public class ItemRepo
 	
 	public Item getItemById( int id )
 	{
-		if( id > 0 && id <= items.size() )
+		if( id > 0 && id <= items.listSize() )
 		{
-			for( Item i: items )
+			for( int i = 0; i < items.listSize(); i++ )
 			{
-				if( i.getId() == id )
+				try
 				{
-					return i;
+					Item item = items.getElementAtPosition( i );
+					
+					if( item.getId() == id )
+					{
+						return item;
+					}
+				}
+				catch( DoubleLinkedListException d )
+				{
+					return null;
 				}
 			}
 		}
@@ -68,67 +86,77 @@ public class ItemRepo
 	
 	public Item getItem( int index )
 	{
-		return items.get( index );
+		try
+		{
+			return items.getElementAtPosition( index );
+		}
+		catch( DoubleLinkedListException d )
+		{
+			return null;
+		}
 	}
 	
 	public void removeItem( int index )
 	{
-		items.remove( index );
-	}
-	
-	public Item getById( int id )
-	{
-		for( Item i: this.items )
+		try
 		{
-			if( i.getId() == id )
-			{
-				return i;
-			}
+			items.deleteElementAtPosition( index );
 		}
-		
-		return null;
+		catch( DoubleLinkedListException d )
+		{
+			
+		}
 	}
 	
-	public ArrayList<Item> searchFor( String instance, String search )
+	public DoubleLinkedList<Item> searchFor( String instance, String search )
 	{
-		ArrayList<Item> searchResult = new ArrayList<Item>();
+		DoubleLinkedList<Item> searchResult = new DoubleLinkedList<Item>();
 		
-		for( Item i: items )
+		for( int i = 0; i < items.listSize(); i++ )
 		{
-			if( i instanceof Book && instance.equalsIgnoreCase( "book" ) )
+			try
 			{
-				Book book = (Book)i;
+				Item item = items.getElementAtPosition( i );
 				
-				if( book.getIsbn().equalsIgnoreCase( search ) )
+				if( item instanceof Book && instance.equalsIgnoreCase( "book" ) )
 				{
-					searchResult.add( book );
+					Book book = (Book)item;
+					
+					if( book.getIsbn().equalsIgnoreCase( search ) )
+					{
+						searchResult.insertFirst( book );
+					}
+				}
+				else if( item instanceof Eletronic && instance.equalsIgnoreCase( "eletronic" ) )
+				{
+					Eletronic eletronic = (Eletronic)item;
+					
+					/**
+					 * Change the case of the Name and the search key
+					 * put the both in lowercase.
+					 */
+					if( eletronic.getName().toLowerCase().contains( search.toLowerCase() ) || eletronic.getBrand().toLowerCase().contains( search.toLowerCase() ) )
+					{
+						searchResult.insertFirst( eletronic );
+					}
+				}
+				else if( item instanceof Dvd && instance.equalsIgnoreCase( "dvd" ) )
+				{
+					Dvd dvd = (Dvd)item;
+					
+					/**
+					 * Change the case of the Name and the search key
+					 * put the both in lowercase.
+					 */
+					if( dvd.getName().toLowerCase().contains( search.toLowerCase() ) || dvd.getGenre().toLowerCase().contains( search.toLowerCase() ) )
+					{
+						searchResult.insertFirst( dvd );
+					}
 				}
 			}
-			else if( i instanceof Eletronic && instance.equalsIgnoreCase( "eletronic" ) )
+			catch( DoubleLinkedListException d )
 			{
-				Eletronic eletronic = (Eletronic)i;
 				
-				/**
-				 * Change the case of the Name and the search key
-				 * put the both in lowercase.
-				 */
-				if( eletronic.getName().toLowerCase().contains( search.toLowerCase() ) || eletronic.getBrand().toLowerCase().contains( search.toLowerCase() ) )
-				{
-					searchResult.add( eletronic );
-				}
-			}
-			else if( i instanceof Dvd && instance.equalsIgnoreCase( "dvd" ) )
-			{
-				Dvd dvd = (Dvd)i;
-				
-				/**
-				 * Change the case of the Name and the search key
-				 * put the both in lowercase.
-				 */
-				if( dvd.getName().toLowerCase().contains( search.toLowerCase() ) || dvd.getGenre().toLowerCase().contains( search.toLowerCase() ) )
-				{
-					searchResult.add( dvd );
-				}
 			}
 		}
 		
@@ -151,19 +179,28 @@ public class ItemRepo
 		eletronic.append( generateHeaderTable( "eletronic" ) );
 		dvd.append( generateHeaderTable( "dvd" ) );
 		
-		for( Item i: items )
+		for( int i = 0; i < items.listSize(); i++ )
 		{
-			if( i instanceof Book )
+			try
 			{
-				_book.append( i.toString() );
+				Item item = items.getElementAtPosition( i );
+				
+				if( item instanceof Book )
+				{
+					_book.append( item.toString() );
+				}
+				else if( item instanceof Eletronic )
+				{
+					_eletronic.append( item.toString() );
+				}
+				else if( item instanceof Dvd )
+				{
+					_dvd.append( item.toString() );
+				}
 			}
-			else if( i instanceof Eletronic )
+			catch( DoubleLinkedListException d )
 			{
-				_eletronic.append( i.toString() );
-			}
-			else if( i instanceof Dvd )
-			{
-				_dvd.append( i.toString() );
+				
 			}
 		}
 		

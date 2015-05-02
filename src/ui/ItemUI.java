@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 
+import list.DoubleLinkedList;
+import list.DoubleLinkedListException;
 import entity.Book;
 import entity.Dvd;
 import entity.Eletronic;
@@ -274,15 +276,24 @@ public class ItemUI
 		
 		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );
 		
-		ArrayList<Item> resultSearch = this.item.searchFor( instance, search );
+		DoubleLinkedList<Item> resultSearch = this.item.searchFor( instance, search );
 		
 		if( null != resultSearch )
 		{
 			StringBuilder s = new StringBuilder();
 			
-			for( Item i: resultSearch )
+			for( int i = 0; i < resultSearch.listSize(); i++ )
 			{
-				s.append( i.toString() );
+				try
+				{
+					Item item = resultSearch.getElementAtPosition( i );
+					
+					s.append( item.toString() );
+				}
+				catch( DoubleLinkedListException d )
+				{
+					
+				}
 			}
 			
 			if( s.length() == 0 )

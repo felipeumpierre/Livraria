@@ -1,17 +1,18 @@
 package repo;
 
-import java.util.ArrayList;
+import list.DoubleLinkedList;
+import list.DoubleLinkedListException;
 import entity.Client;
 
 public class ClientRepo
 {
-	private ArrayList<Client> client;
+	private DoubleLinkedList<Client> client;
 	
 	private int id = 1;
 	
 	public ClientRepo()
 	{
-		client = new ArrayList<Client>();
+		client = new DoubleLinkedList<Client>();
 		
 		populate();
 	}
@@ -20,8 +21,16 @@ public class ClientRepo
 	{
 		if( null != cli )
 		{
-			cli.setId( this.id );			
-			client.add( cli );
+			cli.setId( this.id );
+			
+			try
+			{
+				client.insertFirst( cli );
+			}			
+			catch( DoubleLinkedListException d )
+			{
+				
+			}
 			
 			this.id++;
 		}
@@ -29,13 +38,22 @@ public class ClientRepo
 	
 	public Client getClientById( int id )
 	{
-		if( id > 0 && id <= client.size() )
+		if( id > 0 )
 		{
-			for( Client i: client )
+			for( int i = 0; i < client.listSize(); i++ )
 			{
-				if( i.getId() == id )
+				try
 				{
-					return i;
+					Client cli = client.getElementAtPosition( i );
+				
+					if( cli.getId() == id )
+					{
+						return cli;
+					}
+				}
+				catch( DoubleLinkedListException d )
+				{
+					return null;
 				}
 			}
 		}
@@ -45,13 +63,22 @@ public class ClientRepo
 	
 	public Client getClientByCpf( String cpf )
 	{
-		if( client.size() > 0 )
+		if( client.listSize() > 0 )
 		{
-			for( Client i: client )
+			for( int i = 0; i < client.listSize(); i++ )
 			{
-				if( i.getCpf().equalsIgnoreCase( cpf ) )
+				try
 				{
-					return i;
+					Client cli = client.getElementAtPosition( i );
+				
+					if( cli.getCpf().equalsIgnoreCase( cpf ) )
+					{
+						return cli;
+					}
+				}
+				catch( DoubleLinkedListException d )
+				{
+					return null;
 				}
 			}
 		}
@@ -61,9 +88,18 @@ public class ClientRepo
 
 	public boolean cpfExists( String cpf )
 	{
-		for( Client cli: client )
+		for( int i = 0; i < client.listSize(); i++ )
 		{
-			if( cli.getCpf().equalsIgnoreCase( cpf ) )
+			try
+			{
+				Client cli = client.getElementAtPosition( i );
+			
+				if( cli.getCpf().equalsIgnoreCase( cpf ) )
+				{
+					return true;
+				}
+			}
+			catch( DoubleLinkedListException d )
 			{
 				return true;
 			}
@@ -82,9 +118,18 @@ public class ClientRepo
 		clients.append( Client.header );
 		clients.append( Client.divisor );
 		
-		for( Client c: client )
+		for( int i = 0; i < client.listSize(); i++ )
 		{
-			_clients.append( c.toString() );
+			try
+			{
+				Client cli = client.getElementAtPosition( i );
+			
+				_clients.append( cli.toString() );
+			}
+			catch( DoubleLinkedListException d )
+			{
+				
+			}
 		}
 		
 		if( _clients.length() > 0 )

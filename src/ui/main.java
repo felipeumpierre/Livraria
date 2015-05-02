@@ -1,5 +1,6 @@
 package ui;
 
+import entity.Client;
 import repo.*;
 import util.Console;
 import util.loadCsv;
@@ -9,7 +10,9 @@ public class main
 	public static void main( String[] args )
 	{
 		init();
-				
+		
+		// client.show();
+		
 		/*// Clientes
 		client.addClient( new Client( "Felipe", "123456" ) );
 		client.addClient( new Client( "Vivian", "123456" ) );

@@ -112,7 +112,7 @@ public class CartUI
 		{
 			id = Console.scanInt( "0- Sair | Escolha o id do produto: " );
 			
-			Item i = this.item.getById( id );
+			Item i = this.item.getItemById( id );
 			
 			if( null != i )
 			{

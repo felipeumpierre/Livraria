@@ -42,7 +42,7 @@ public class DoubleLinkedList<T>
 		
 		return result;
 	}
-
+	
 	public T first()
 	{
 		return this.first.elem;
@@ -74,6 +74,11 @@ public class DoubleLinkedList<T>
 	    
 	    return result;
 	}
+	
+	public DLNode<T> getElements() throws DoubleLinkedListException 
+	{
+		return this.first;
+	}
 
 	public T getElementAtPosition( int position ) throws DoubleLinkedListException 
 	{
@@ -82,7 +87,7 @@ public class DoubleLinkedList<T>
 
 	public void setElementAtPosition( int position, T element ) throws DoubleLinkedListException
 	{
-		this.getNodeAtPosition(position).elem = element;
+		this.getNodeAtPosition( position ).elem = element;
 	}
 
 	private void insertElementAtEmpty( T element )
@@ -186,7 +191,7 @@ public class DoubleLinkedList<T>
 
 	public void deleteLast()
 	{
-	    if (this.first == this.last ) 
+	    if( this.first == this.last ) 
 	    {
 	    	this.first = null;
 	    	this.last = null;

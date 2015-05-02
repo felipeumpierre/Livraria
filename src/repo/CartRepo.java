@@ -3,16 +3,17 @@ package repo;
 import entity.Cart;
 import entity.Item;
 
-import java.util.ArrayList;
+import list.DoubleLinkedList;
+import list.DoubleLinkedListException;
 
 public class CartRepo
 {
-	private ArrayList<Item> items;
+	private DoubleLinkedList<Item> items;
 	private Cart cart;
 	
 	public CartRepo()
 	{
-		items = new ArrayList<Item>();
+		items = new DoubleLinkedList<Item>();
 		cart = new Cart();
 		
 		cart.setCartStatus( 1 );
@@ -24,8 +25,15 @@ public class CartRepo
 		{
 			if( checkStockFromItem( item ) )
 			{
-				items.add( item );				
-				item.setStock( item.getStock() - 1 );
+				try
+				{
+					items.insertFirst( item );				
+					item.setStock( item.getStock() - 1 );
+				}
+				catch( DoubleLinkedListException d )
+				{
+					
+				}
 			}
 			else
 			{
@@ -59,9 +67,18 @@ public class CartRepo
 		products.append( String.format( "|  %-2s | %-40s |%n", "#", "Item" ) );
 		products.append( String.format( "+-----+------------------------------------------+%n" ) );
 		
-		for( Item i: items )
+		for( int i = 0; i < items.listSize(); i++ )
 		{
-			products.append( i.toStringCart() );
+			try
+			{
+				Item item = items.getElementAtPosition( i );
+				
+				products.append( item.toStringCart() );
+			}
+			catch( DoubleLinkedListException d )
+			{
+				
+			}
 		}
 		
 		products.append( String.format( "+-----+------------------------------------------+%n" ) );

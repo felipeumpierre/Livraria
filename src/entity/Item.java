@@ -40,7 +40,7 @@ public class Item
 		StringBuilder result = new StringBuilder();
 		
 		result.append( String.format( "| %-2s ", this.getId() ) );
-		result.append( String.format( "| %-180s ", this.getName() ) );
+		result.append( String.format( "| %-20s ", this.getName() ) );
 		
 		return result.toString();
 	}

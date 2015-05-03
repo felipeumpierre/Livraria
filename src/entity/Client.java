@@ -10,7 +10,7 @@ public class Client
 	
 	public static final String divisor = String.format( "+-----+------------------------+---------------+%n" );
 	public static final String header = String.format( "|  %-2s | %-22s | %-13s |%n", "#", "Nome", "CPF" );
-	public static final String none = String.format( "|  %-43s |%n", "Nenhum cliente encontrado" );
+	public static final String none = String.format( "| %-44s |%n", "Nenhum cliente encontrado" );
 	
 	private CartRepo cart = new CartRepo();
 	

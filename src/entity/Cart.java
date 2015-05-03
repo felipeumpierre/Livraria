@@ -2,14 +2,14 @@ package entity;
 
 public class Cart
 {
-	private int cartStatus;
+	private boolean cartStatus;
 
-	public int getCartStatus()
+	public boolean getCartStatus()
 	{
 		return cartStatus;
 	}
 
-	public void setCartStatus( int cartStatus )
+	public void setCartStatus( boolean cartStatus )
 	{
 		this.cartStatus = cartStatus;
 	}

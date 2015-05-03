@@ -26,8 +26,8 @@ public class CartUI
 			System.out.println( "\n+--------------------------+" );
 			System.out.println( String.format( "| %-24s |", "Menu Carrinho" ) );
 			System.out.println( "+--------------------------+" );
-			System.out.println( String.format( "| %-24s |", "1- Novo carrinho" ) );
-			System.out.println( String.format( "| %-24s |", "2- Acessar carrinho" ) );
+			System.out.println( String.format( "| %-24s |", "1- Acessar carrinho" ) );
+			System.out.println( String.format( "| %-24s |", "2- Finalizar carrinho" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
@@ -35,71 +35,74 @@ public class CartUI
 			
 			switch( opt )
 			{
-				case 1: newCart(); break;
-				case 2: openCart(); break;
+				case 1: accessCart(); break;
+				case 2: finishCart(); break;
+				case 0: break;
 				default: System.out.println( "\n- Opção inválida!" ); break;
 			}
 		}
 		while( opt != 0 );
 	}
 	
-	public void newCart()
+	public void accessCart()
 	{
-		System.out.println( "\n--- Novo carrinho ---\n" );
+		System.out.println( "\n--- Acessando carrinho do cliente ---\n" );
 		
-		boolean found = false;
+		String cpf;
 		
 		do
 		{
-			String cpf = Console.scanString( "Informe o CPF do cliente: " );
+			cpf = Console.scanString( "0- Sair | Informe o CPF do cliente: " );
 			
-			Client cli = this.client.getClientByCpf( cpf );
-			
-			if( null != cli )
+			if( !cpf.equalsIgnoreCase( "0" ) )
 			{
-				addItems( cli );
-
-				found = true;
-			}
-			else
-			{
-				System.out.println( "\n- Cliente não encontrado!\n" );
+				Client cli = this.client.getClientByCpf( cpf );
+				
+				if( null != cli )
+				{
+					addItems( cli );
+				}
+				else
+				{
+					System.out.println( "\n- Cliente não encontrado!" );
+				}
 			}
 		}
-		while( found == false );
+		while( !cpf.equalsIgnoreCase( "0" ) );
 		
-		System.out.println( "\n--- Fim do novo carrinho ---" );
+		System.out.println( "\n--- Fim do acesso ao carrinho ---" );
 	}
 	
-	public void openCart()
+	public void finishCart()
 	{
-		System.out.println( "\n--- Acessar carrinho ---\n" );
+		System.out.println( "\n--- Finalizando carrinho ---\n" );
 		
-		boolean found = false;
+		String cpf;
 		
 		do
 		{
-			String cpf = Console.scanString( "Informe o CPF do cliente: " );
+			cpf = Console.scanString( "0- Sair | Informe o CPF do cliente: " );
 			
-			Client cli = this.client.getClientByCpf( cpf );
-			
-			if( null != cli )
+			if( !cpf.equalsIgnoreCase( "0" ) )
 			{
-				System.out.println( "Os produtos neste carrinho" );
-				System.out.println( cli.getCart().toString() );
+				Client cli = this.client.getClientByCpf( cpf );
 				
-				addItems( cli );
-
-				found = true;
-			}
-			else
-			{
-				System.out.println( "\n- Cliente não encontrado!\n" );
+				if( null != cli )
+				{
+					if( cli.getCart().finish() )
+					{
+						System.out.println( "\nCarrinho finalizado com sucesso!" );
+					}
+				}
+				else
+				{
+					System.out.println( "\n- Cliente não encontrado!\n" );
+				}
 			}
 		}
-		while( found == false );
+		while( !cpf.equalsIgnoreCase( "0" ) );
 		
-		System.out.println( "\n--- Fim do acesso ao carrinho já existente ---" );
+		System.out.println( "\n--- Fim de finalizar carrinho ---" );
 	}
 	
 	private void addItems( Client cli )
@@ -116,13 +119,12 @@ public class CartUI
 			
 			if( null != i )
 			{
-				cli.getCart().addItem( i );
-				
-				System.out.println( "\nProduto\n" + i.toString() + "Adicionado com sucesso!\n" );
-			}
-			
-			System.out.println( cli.toString() );
-			System.out.println( cli.getCart().toString() );	
+				if( cli.getCart().addItem( i ) )
+				{
+					System.out.println( "\nProduto\n" + i.toString() + "Adicionado com sucesso!\n" );
+					System.out.println( cli.getCart().toString() );
+				}
+			}	
 		}
 		while( id != 0 );
 		

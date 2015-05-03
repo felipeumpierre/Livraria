@@ -52,6 +52,8 @@ public class ItemUI
 			}
 		}
 		while( opt != 0 );
+		
+		main.init();
 	}
 	
 	public void categoryOption( String type )
@@ -99,13 +101,16 @@ public class ItemUI
 					}
 					
 					break;
-				case 0: break;
+				case 0: 
+					break;
 				default:
 					System.out.println( "\n- Opção inválida!" );
 					break;
 			}
 		}
 		while( opt != 0 );
+		
+		run();
 	}
 	
 	private void addBook()

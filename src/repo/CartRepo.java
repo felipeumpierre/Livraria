@@ -16,31 +16,46 @@ public class CartRepo
 		items = new DoubleLinkedList<Item>();
 		cart = new Cart();
 		
-		cart.setCartStatus( 1 );
+		cart.setCartStatus( false );
 	}
 	
-	public void addItem( Item item )
+	public boolean addItem( Item item )
 	{
 		if( null != item )
 		{
-			if( checkStockFromItem( item ) )
+			if( !this.cart.getCartStatus() )
 			{
-				try
+				if( checkStockFromItem( item ) )
 				{
-					items.insertFirst( item );				
-					item.setStock( item.getStock() - 1 );
+					try
+					{
+						items.insertFirst( item );				
+						item.setStock( item.getStock() - 1 );
+						
+						return true;
+					}
+					catch( DoubleLinkedListException d )
+					{
+						
+					}
 				}
-				catch( DoubleLinkedListException d )
+				else
 				{
+					System.out.println( "\n- Produto indisponível." );
+					System.out.println( item.toString() );
 					
+					return false;
 				}
 			}
 			else
 			{
-				System.out.println( "Produto indisponível." );
-				System.out.println( item.toString() );
+				System.out.println( "\n- Este carrinho já está finalizado." );
+				
+				return false;
 			}
 		}
+		
+		return false;
 	}
 	
 	public boolean checkStockFromItem( Item item )
@@ -55,7 +70,17 @@ public class CartRepo
 	
 	public String checkStatusCart()
 	{
-		return this.cart.getCartStatus() == 1 ? "Aberto" : "Fechado";
+		return !this.cart.getCartStatus() ? "Aberto" : "Fechado";
+	}
+	
+	public boolean finish()
+	{
+		if( !cart.getCartStatus() )
+		{
+			this.cart.setCartStatus( true );
+		}
+		
+		return this.cart.getCartStatus();
 	}
 	
 	@Override

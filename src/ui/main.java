@@ -10,50 +10,6 @@ public class main
 	public static void main( String[] args )
 	{
 		init();
-		
-		// client.show();
-		
-		/*// Clientes
-		client.addClient( new Client( "Felipe", "123456" ) );
-		client.addClient( new Client( "Vivian", "123456" ) );
-		//System.out.println( client.toString() );
-		
-		// Items
-		item.addItem( new Book( "Livro #1", "A123", "Felipe", 2 ) );
-		item.addItem( new Eletronic( "Lavadoura de Louças", "Brastemp", 1 ) );
-		item.addItem( new Dvd( "Interstelar", "Warner", 2 ) );
-		System.out.println( item.toString( "all" ) );
-		
-		// Carrinho
-		CartRepo cart = new CartRepo();
-		cart.addClient( client.getClientById( 1 ) );
-		cart.addItem( item.getItemById( 3 ) );
-		cart.addItem( item.getItemById( 2 ) );
-		cart.addItem( item.getItemById( 1 ) );
-		cart.addItem( item.getItemById( 4 ) );
-		
-		CartRepo cart2 = new CartRepo();
-		cart2.addClient( client.getClientById( 2 ) );
-		cart2.addItem( item.getItemById( 1 ) );
-		cart2.addItem( item.getItemById( 2 ) );
-		
-		//System.out.println( cart.toString() );
-		//System.out.println( cart2.toString() );
-		
-		// Search
-		ArrayList<Item> search = item.searchFor( "dvd", "inter" );
-		
-		if( null != search )
-		{
-			StringBuilder s = new StringBuilder();
-			
-			for( Item i: search )
-			{
-				s.append( i.toString() );
-			}
-			
-			//System.out.println( s.toString() );
-		}*/
 	}
 	
 	public static void init()

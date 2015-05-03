@@ -1,16 +1,12 @@
 package ui;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 
 import list.DoubleLinkedList;
 import list.DoubleLinkedListException;
-import entity.Book;
-import entity.Dvd;
-import entity.Eletronic;
-import entity.Item;
+import entity.*;
 import repo.ItemRepo;
 import util.Console;
 

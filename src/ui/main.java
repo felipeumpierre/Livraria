@@ -1,6 +1,5 @@
 package ui;
 
-import entity.Client;
 import repo.*;
 import util.Console;
 import util.loadCsv;

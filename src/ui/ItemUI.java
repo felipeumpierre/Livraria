@@ -37,18 +37,20 @@ public class ItemUI
 			System.out.println( String.format( "| %-24s |", "1- Adicionar produto" ) );
 			System.out.println( String.format( "| %-24s |", "2- Listar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Buscar produtos" ) );
+			System.out.println( String.format( "| %-24s |", "4- Reordenar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma opÃ§Ã£o: " );
+			opt = Console.scanInt( "Escolha uma opção: " );
 			
 			switch( opt )
 			{
 				case 1: categoryOption( "add" ); break;
 				case 2: categoryOption( "list" ); break;
 				case 3: categoryOption( "search" ); break;
+				case 4: categoryOption( "reorder" );; break;
 				case 0: break;
-				default: System.out.println( "\n- OpÃ§Ã£o invÃ¡lida!" ); break;
+				default: System.out.println( "\n- Opção inválida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -65,12 +67,12 @@ public class ItemUI
 			System.out.println( "\nEscolha uma categoria." );
 			System.out.println( "+--------------------------+" );
 			System.out.println( String.format( "| %-24s |", "1- Livros" ) );
-			System.out.println( String.format( "| %-24s |", "2- EletrÃ´nicos" ) );
+			System.out.println( String.format( "| %-24s |", "2- Eletrônicos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Dvds" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma opÃ§Ã£o: " );
+			opt = Console.scanInt( "Escolha uma opção: " );
 			
 			switch( opt )
 			{
@@ -80,6 +82,7 @@ public class ItemUI
 						case "add": addBook(); break;
 						case "list": list( "book" ); break;
 						case "search": search( "book" ); break;
+						case "reorder": reorder( "book" ); break;
 					}
 					
 					break;
@@ -89,6 +92,7 @@ public class ItemUI
 						case "add": addEletronic(); break;
 						case "list": list( "eletronic" ); break;
 						case "search": search( "eletronic" ); break;
+						case "reorder": reorder( "eletronic" ); break;
 					}
 					
 					break;
@@ -98,13 +102,14 @@ public class ItemUI
 						case "add": addDvd(); break;
 						case "list": list( "dvd" ); break;
 						case "search": search( "dvd" ); break;
+						case "reorder": reorder( "dvd" ); break;
 					}
 					
 					break;
 				case 0: 
 					break;
 				default:
-					System.out.println( "\n- OpÃ§Ã£o invÃ¡lida!" );
+					System.out.println( "\n- Opção inválida!" );
 					break;
 			}
 		}
@@ -132,7 +137,7 @@ public class ItemUI
 			
 			if( null == isbn )
 			{
-				System.out.println( "\n- VocÃª deve informar o ISBN.\n" );
+				System.out.println( "\n- Você deve informar o ISBN.\n" );
 			}
 			else
 			{
@@ -159,7 +164,7 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- VocÃª deve informar um nÃºmero.\n" );
+				System.out.println( "\n- Você deve informar um número.\n" );
 			}
 		}
 		while( valid == false );
@@ -175,7 +180,7 @@ public class ItemUI
 	
 	private void addEletronic()
 	{
-		System.out.println( "\n--- Adicionando novo eletrÃ´nico ---\n" );
+		System.out.println( "\n--- Adicionando novo eletrônico ---\n" );
 		
 		boolean valid = false;
 		int stock = 0;
@@ -195,15 +200,15 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- VocÃª deve informar um nÃºmero.\n" );
+				System.out.println( "\n- Você deve informar um número.\n" );
 			}
 		}
 		while( valid == false );
 		
 		this.item.addItem( new Eletronic( name, brand, stock ) );
 		
-		System.out.println( "\nEletrÃ´nico " + name + " cadastrado com sucesso!" );		
-		System.out.println( "\n--- Fim de cadastro de eletrÃ´nico ---" );
+		System.out.println( "\nEletrônico " + name + " cadastrado com sucesso!" );		
+		System.out.println( "\n--- Fim de cadastro de eletrônico ---" );
 		
 		// return to the first menu of products
 		run();
@@ -215,8 +220,8 @@ public class ItemUI
 		
 		boolean valid = false;
 		int stock = 0;
-		String name = Console.scanString( "TÃ­tulo: " );
-		String genre = Console.scanString( "GÃªnero: " );
+		String name = Console.scanString( "Título: " );
+		String genre = Console.scanString( "Gênero: " );
 		String year = Console.scanString( "Ano: " );
 		
 		/**
@@ -232,7 +237,7 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- VocÃª deve informar um nÃºmero.\n" );
+				System.out.println( "\n- Você deve informar um número.\n" );
 			}
 		}
 		while( valid == false );
@@ -256,6 +261,19 @@ public class ItemUI
 		run();
 	}
 	
+	private void reorder( String instance )
+	{
+		System.out.println( "\n--- Reordenar produtos ---\n" );	
+		
+		this.item.sort();
+		System.out.println( this.item.toString( instance ) );
+		
+		System.out.println( "--- Fim da reordem de produtos ---" );
+		
+		// return to the first menu of products
+		run();
+	}
+	
 	private void search( String instance )
 	{
 		System.out.println( "\n--- Buscar produtos ---\n" );
@@ -272,7 +290,7 @@ public class ItemUI
 		}
 		else if( "dvd" == instance )
 		{
-			keywords = "TÃ­tulo/Produtora";
+			keywords = "Título/Produtora";
 		}
 		
 		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );

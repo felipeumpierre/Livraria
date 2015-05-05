@@ -25,17 +25,19 @@ public class ClientUI
 			System.out.println( String.format( "| %-24s |", "1- Adicionar cliente" ) );
 			System.out.println( String.format( "| %-24s |", "2- Listar clientes" ) );
 			System.out.println( String.format( "| %-24s |", "3- Buscar clientes" ) );
+			System.out.println( String.format( "| %-24s |", "4- Reordenar clientes" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma op√ß√£o: " );
+			opt = Console.scanInt( "Escolha uma opÁ„o: " );
 			
 			switch( opt )
 			{
 				case 1: addClient(); break;
 				case 2: listClient(); break;
 				case 3: searchClient(); break;
-				default: System.out.println( "\n- Op√ß√£o inv√°lida!" ); break;
+				case 4: reorder(); break;
+				default: System.out.println( "\n- OpÁ„o inv·lida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -49,7 +51,7 @@ public class ClientUI
 		
 		if( this.client.cpfExists( cpf ) )
 		{
-			System.err.println( "\nO CPF j√° foi cadastrado.\n" );
+			System.err.println( "\nO CPF j· foi cadastrado.\n" );
 		}
 		else
 		{
@@ -66,6 +68,16 @@ public class ClientUI
 		System.out.println( "\n--- Listar clientes ---\n" );	
 		System.out.println( this.client.toString() );		
 		System.out.println( "--- Fim da listagem de clientes ---" );
+	}
+	
+	private void reorder()
+	{
+		System.out.println( "\n--- Reordenar clientes ---\n" );	
+		
+		this.client.sort();
+		System.out.println( this.client.toString() );
+		
+		System.out.println( "--- Fim da reordem de clientes ---" );
 	}
 	
 	public void searchClient()
@@ -90,7 +102,7 @@ public class ClientUI
 		}
 		else
 		{
-			System.out.println( "\nN√£o foi encontrado nenhum cliente com o CPF: " + cpf + "\n" );
+			System.out.println( "\nN„o foi encontrado nenhum cliente com o CPF: " + cpf + "\n" );
 		}
 		
 		System.out.println( "--- Fim da busca de clientes ---" );

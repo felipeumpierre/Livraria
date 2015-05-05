@@ -1,6 +1,6 @@
 package entity;
 
-public class Item 
+public class Item implements Comparable<Item>
 {
 	private int id = 0, stock;
 	private String name;
@@ -34,6 +34,12 @@ public class Item
 	{
 		this.stock = stock;
 	}
+	
+	@Override
+    public int compareTo( Item it )
+	{
+        return this.name.compareTo( it.name );
+    }
 
 	public String toString()
 	{

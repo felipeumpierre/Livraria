@@ -2,6 +2,8 @@ package repo;
 
 import list.DoubleLinkedList;
 import list.DoubleLinkedListException;
+import list.DoubleLinkedListSort;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +28,7 @@ public class ItemRepo
 		header.put( "item", String.format( "| %-2s | %-21s", "#", "Item" ) );
 		header.put( "book", String.format( "| %-6s |%n", "ISBN" ) );
 		header.put( "eletronic", String.format( "| %-15s |%n", "Marca" ) );
-		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "GÃªnero", "Ano" ) );
+		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "Gênero", "Ano" ) );
 		
 		divisors.put( "item", String.format( "+----+----------------------" ) );
 		divisors.put( "book", String.format( "+--------+%n" ) );
@@ -34,7 +36,7 @@ public class ItemRepo
 		divisors.put( "dvd", String.format( "+---------------------+------+%n" ) );
 		
 		none.put( "book", String.format( "| %-34s |%n", "Nenhum livro foi encontrado" ) );
-		none.put( "eletronic", String.format( "| %-44s |%n", "Nenhum eletrÃ´nico foi encontrado" ) );
+		none.put( "eletronic", String.format( "| %-44s |%n", "Nenhum eletrônico foi encontrado" ) );
 		none.put( "dvd", String.format( "| %-54s |%n", "Nenhum dvd foi encontrado" ) );
 		
 		populate();
@@ -162,6 +164,13 @@ public class ItemRepo
 		
 		return searchResult;
 	}
+
+	public DoubleLinkedList<Item> sort()
+	{
+		this.items = DoubleLinkedListSort.sort( this.items );
+		
+		return this.items;
+	}
 	
 	public String toString( String type )
 	{	
@@ -251,10 +260,19 @@ public class ItemRepo
 	}
 
 	private void populate()
-	{		
-		this.addItem( new Eletronic( "MÃ¡quina de lavar", "Brastemp", 2 ) );
+	{	
+		/* this.addItem( new Dvd( "A", "2015", "Drama", 2 ) );
+		this.addItem( new Dvd( "C", "2015", "Drama", 2 ) );
+		this.addItem( new Dvd( "D", "2015", "Drama", 2 ) );
+		this.addItem( new Dvd( "E", "2015", "Drama", 2 ) );
+		this.addItem( new Dvd( "B", "2015", "Drama", 2 ) ); */
+		
+		this.addItem( new Eletronic( "Máquina de lavar", "Brastemp", 2 ) );
 		this.addItem( new Eletronic( "Geladeira", "Brastemp", 3 ) );
+		this.addItem( new Eletronic( "Cara", "Apple", 1 ) );
 		this.addItem( new Eletronic( "Notebook", "Apple", 1 ) );
+		this.addItem( new Eletronic( "Beta", "Apple", 1 ) );
 		this.addItem( new Eletronic( "Mouse", "Razer", 2 ) );
+		this.addItem( new Eletronic( "Asta", "Razer", 2 ) );
 	}
 }

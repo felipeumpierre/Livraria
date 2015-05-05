@@ -2,7 +2,7 @@ package entity;
 
 import repo.CartRepo;
 
-public class Client
+public class Client implements Comparable<Client>
 {
 	private String name;
 	private String cpf;
@@ -53,6 +53,12 @@ public class Client
 	public CartRepo getCart()
 	{
 		return this.cart;
+	}
+	
+	@Override
+	public int compareTo( Client cli )
+	{
+		return this.name.compareTo( cli.name );
 	}
 	
 	@Override

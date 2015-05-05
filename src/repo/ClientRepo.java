@@ -2,6 +2,7 @@ package repo;
 
 import list.DoubleLinkedList;
 import list.DoubleLinkedListException;
+import list.DoubleLinkedListSort;
 import entity.Client;
 
 public class ClientRepo
@@ -108,6 +109,13 @@ public class ClientRepo
 		return false;
 	}
 	
+	public DoubleLinkedList<Client> sort()
+	{
+		this.client = DoubleLinkedListSort.sort( this.client );
+		
+		return this.client;
+	}
+	
 	@Override
 	public String toString()
 	{
@@ -147,8 +155,12 @@ public class ClientRepo
 	}
 
 	private void populate()
-	{
+	{		
 		this.addClient( new Client( "Felipe", "12345" ) );
 		this.addClient( new Client( "Vivian", "54321" ) );
+		this.addClient( new Client( "Eduardo", "12345" ) );
+		this.addClient( new Client( "João", "12345" ) );
+		this.addClient( new Client( "Ana", "12345" ) );
+		this.addClient( new Client( "Walter", "12345" ) );
 	}
 }

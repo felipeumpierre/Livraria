@@ -31,14 +31,14 @@ public class CartUI
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma op√ß√£o: " );
+			opt = Console.scanInt( "Escolha uma opÁ„o: " );
 			
 			switch( opt )
 			{
 				case 1: accessCart(); break;
 				case 2: finishCart(); break;
 				case 0: break;
-				default: System.out.println( "\n- Op√ß√£o inv√°lida!" ); break;
+				default: System.out.println( "\n- OpÁ„o inv·lida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -64,7 +64,7 @@ public class CartUI
 				}
 				else
 				{
-					System.out.println( "\n- Cliente n√£o encontrado!" );
+					System.out.println( "\n- Cliente n„o encontrado!" );
 				}
 			}
 		}
@@ -96,7 +96,7 @@ public class CartUI
 				}
 				else
 				{
-					System.out.println( "\n- Cliente n√£o encontrado!\n" );
+					System.out.println( "\n- Cliente n„o encontrado!\n" );
 				}
 			}
 		}
@@ -128,6 +128,6 @@ public class CartUI
 		}
 		while( id != 0 );
 		
-		System.out.println( "\n--- Fim de adi√ß√£o de produtos ao carrinho ---" );
+		System.out.println( "\n--- Fim de adiÁ„o de produtos ao carrinho ---" );
 	}
 }

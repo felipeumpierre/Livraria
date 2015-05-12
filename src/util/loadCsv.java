@@ -1,9 +1,8 @@
 package util;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Scanner;
 
 import entity.Book;
 import entity.Dvd;
@@ -11,15 +10,83 @@ import repo.ItemRepo;
 
 public class loadCsv
 {
-	public static ItemRepo load( ItemRepo itemsRepo )
+	private static ItemRepo itemRepo;
+
+	public static ItemRepo load( ItemRepo item )
+	{
+		try
+		{
+			itemRepo = item;
+			
+			Scanner input = new Scanner( new File( "/home/felipe/workspace/Livraria2/src/util/dados.txt" ) );
+			input.useDelimiter( ";" );
+			
+			while( input.nextLine() != null && input.hasNextLine() )
+			{
+				String line = input.next();
+				
+				if( line.equalsIgnoreCase( "livro" ) )
+				{
+					addBook( input.nextLine() );
+				}
+				else if( line.equalsIgnoreCase( "dvd" ) )
+				{
+					addDvd( input.nextLine() );
+				}
+			}
+			
+			input.close();
+		}
+		catch( FileNotFoundException e )
+		{
+			e.printStackTrace();
+		}
+		
+		return itemRepo;
+	}
+	
+	private static void addBook( String string )
+	{
+		Scanner line = new Scanner( string );
+		line.useDelimiter( ";" );
+		
+		String title = line.next();
+		String isbn = line.next();
+		
+		int id = itemRepo.addItem( new Book( title, isbn, 2 ) );
+		
+		while( line.hasNext() )
+		{
+			Book book = (Book)itemRepo.getItemById( id );
+			book.addAuthor( line.next() );
+		}
+		
+		line.close();
+	}
+	
+	private static void addDvd( String string )
+	{
+		Scanner line = new Scanner( string );
+		line.useDelimiter( ";" );
+		
+		String title = line.next();
+		String year = line.next();
+		String genre = line.next();
+		
+		itemRepo.addItem( new Dvd( title, year, genre, 1 ) );
+		
+		line.close();
+	}
+	
+	/*public static ItemRepo load( ItemRepo itemsRepo )
 	{
 		String csvFile = "/home/felipe/workspace/Livraria2/src/util/dados.txt";
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ";";
 	 
-		try {
-	 
+		try
+		{
 			br = new BufferedReader( new FileReader( csvFile ) );
 			
 			while( ( line = br.readLine() ) != null )
@@ -67,5 +134,5 @@ public class loadCsv
 		}
 		
 		return itemsRepo;
-	}
+	}*/
 }

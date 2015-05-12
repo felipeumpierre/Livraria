@@ -4,7 +4,7 @@ public class Item implements Comparable<Item>
 {
 	private int id = 0, stock;
 	private String name;
-	
+
 	public int getId() 
 	{
 		return id;

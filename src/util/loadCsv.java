@@ -50,10 +50,7 @@ public class loadCsv
 		Scanner line = new Scanner( string );
 		line.useDelimiter( ";" );
 		
-		String title = line.next();
-		String isbn = line.next();
-		
-		int id = itemRepo.addItem( new Book( title, isbn, 2 ) );
+		int id = itemRepo.addItem( new Book( line.next(), line.next(), 2 ) );
 		
 		while( line.hasNext() )
 		{
@@ -69,11 +66,7 @@ public class loadCsv
 		Scanner line = new Scanner( string );
 		line.useDelimiter( ";" );
 		
-		String title = line.next();
-		String year = line.next();
-		String genre = line.next();
-		
-		itemRepo.addItem( new Dvd( title, year, genre, 1 ) );
+		itemRepo.addItem( new Dvd( line.next(), line.next(), line.next(), 1 ) );
 		
 		line.close();
 	}

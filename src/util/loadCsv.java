@@ -51,10 +51,10 @@ public class loadCsv
 		line.useDelimiter( ";" );
 		
 		int id = itemRepo.addItem( new Book( line.next(), line.next(), 2 ) );
+		Book book = (Book)itemRepo.getItemById( id );
 		
 		while( line.hasNext() )
 		{
-			Book book = (Book)itemRepo.getItemById( id );
 			book.addAuthor( line.next() );
 		}
 		

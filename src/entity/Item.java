@@ -3,7 +3,7 @@ package entity;
 public class Item implements Comparable<Item>
 {
 	private int id = 0, stock;
-	private String name;
+	private String name, description;
 
 	public int getId() 
 	{
@@ -35,10 +35,23 @@ public class Item implements Comparable<Item>
 		this.stock = stock;
 	}
 	
+	public String getDescription() 
+	{
+		return description;
+	}
+
+	public void setDescription( String description )
+	{
+		this.description = description;
+	}
+	
 	@Override
     public int compareTo( Item it )
 	{
-        return this.name.compareTo( it.name );
+		if( this.description != null && it.description != null )
+			return this.description.compareTo( it.description );
+		
+		return 0;
     }
 
 	public String toString()

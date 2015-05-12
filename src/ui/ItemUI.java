@@ -41,7 +41,7 @@ public class ItemUI
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma opção: " );
+			opt = Console.scanInt( "Escolha uma opcao: " );
 			
 			switch( opt )
 			{
@@ -50,7 +50,7 @@ public class ItemUI
 				case 3: categoryOption( "search" ); break;
 				case 4: categoryOption( "reorder" );; break;
 				case 0: break;
-				default: System.out.println( "\n- Opção inválida!" ); break;
+				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -67,12 +67,12 @@ public class ItemUI
 			System.out.println( "\nEscolha uma categoria." );
 			System.out.println( "+--------------------------+" );
 			System.out.println( String.format( "| %-24s |", "1- Livros" ) );
-			System.out.println( String.format( "| %-24s |", "2- Eletrônicos" ) );
+			System.out.println( String.format( "| %-24s |", "2- Eletronicos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Dvds" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma opção: " );
+			opt = Console.scanInt( "Escolha uma opcao: " );
 			
 			switch( opt )
 			{
@@ -109,7 +109,7 @@ public class ItemUI
 				case 0: 
 					break;
 				default:
-					System.out.println( "\n- Opção inválida!" );
+					System.out.println( "\n- Opcao invalida!" );
 					break;
 			}
 		}
@@ -137,7 +137,7 @@ public class ItemUI
 			
 			if( null == isbn )
 			{
-				System.out.println( "\n- Você deve informar o ISBN.\n" );
+				System.out.println( "\n- Voce deve informar o ISBN.\n" );
 			}
 			else
 			{
@@ -164,7 +164,7 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- Você deve informar um número.\n" );
+				System.out.println( "\n- Voce deve informar um numero.\n" );
 			}
 		}
 		while( valid == false );
@@ -180,7 +180,7 @@ public class ItemUI
 	
 	private void addEletronic()
 	{
-		System.out.println( "\n--- Adicionando novo eletrônico ---\n" );
+		System.out.println( "\n--- Adicionando novo eletronico ---\n" );
 		
 		boolean valid = false;
 		int stock = 0;
@@ -200,15 +200,15 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- Você deve informar um número.\n" );
+				System.out.println( "\n- Voce deve informar um numero.\n" );
 			}
 		}
 		while( valid == false );
 		
 		this.item.addItem( new Eletronic( name, brand, stock ) );
 		
-		System.out.println( "\nEletrônico " + name + " cadastrado com sucesso!" );		
-		System.out.println( "\n--- Fim de cadastro de eletrônico ---" );
+		System.out.println( "\nEletrenico " + name + " cadastrado com sucesso!" );		
+		System.out.println( "\n--- Fim de cadastro de eletronico ---" );
 		
 		// return to the first menu of products
 		run();
@@ -220,8 +220,8 @@ public class ItemUI
 		
 		boolean valid = false;
 		int stock = 0;
-		String name = Console.scanString( "Título: " );
-		String genre = Console.scanString( "Gênero: " );
+		String name = Console.scanString( "Titulo: " );
+		String genre = Console.scanString( "Genero: " );
 		String year = Console.scanString( "Ano: " );
 		
 		/**
@@ -237,7 +237,7 @@ public class ItemUI
 			}
 			catch( InputMismatchException format )
 			{
-				System.out.println( "\n- Você deve informar um número.\n" );
+				System.out.println( "\n- Voce deve informar um numero.\n" );
 			}
 		}
 		while( valid == false );
@@ -290,7 +290,7 @@ public class ItemUI
 		}
 		else if( "dvd" == instance )
 		{
-			keywords = "Título/Produtora";
+			keywords = "Titulo/Produtora";
 		}
 		
 		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );

@@ -29,7 +29,7 @@ public class ClientUI
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma opção: " );
+			opt = Console.scanInt( "Escolha uma opcao: " );
 			
 			switch( opt )
 			{
@@ -37,7 +37,7 @@ public class ClientUI
 				case 2: listClient(); break;
 				case 3: searchClient(); break;
 				case 4: reorder(); break;
-				default: System.out.println( "\n- Opção inválida!" ); break;
+				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -51,7 +51,7 @@ public class ClientUI
 		
 		if( this.client.cpfExists( cpf ) )
 		{
-			System.err.println( "\nO CPF já foi cadastrado.\n" );
+			System.err.println( "\nO CPF ja foi cadastrado.\n" );
 		}
 		else
 		{
@@ -102,7 +102,7 @@ public class ClientUI
 		}
 		else
 		{
-			System.out.println( "\nNão foi encontrado nenhum cliente com o CPF: " + cpf + "\n" );
+			System.out.println( "\nNao foi encontrado nenhum cliente com o CPF: " + cpf + "\n" );
 		}
 		
 		System.out.println( "--- Fim da busca de clientes ---" );

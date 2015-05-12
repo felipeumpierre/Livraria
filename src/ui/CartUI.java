@@ -38,7 +38,7 @@ public class CartUI
 				case 1: accessCart(); break;
 				case 2: finishCart(); break;
 				case 0: break;
-				default: System.out.println( "\n- Opção inválida!" ); break;
+				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
 		}
 		while( opt != 0 );
@@ -64,7 +64,7 @@ public class CartUI
 				}
 				else
 				{
-					System.out.println( "\n- Cliente não encontrado!" );
+					System.out.println( "\n- Cliente nao encontrado!" );
 				}
 			}
 		}
@@ -96,7 +96,7 @@ public class CartUI
 				}
 				else
 				{
-					System.out.println( "\n- Cliente não encontrado!\n" );
+					System.out.println( "\n- Cliente nao encontrado!\n" );
 				}
 			}
 		}
@@ -128,6 +128,6 @@ public class CartUI
 		}
 		while( id != 0 );
 		
-		System.out.println( "\n--- Fim de adição de produtos ao carrinho ---" );
+		System.out.println( "\n--- Fim de adicao de produtos ao carrinho ---" );
 	}
 }

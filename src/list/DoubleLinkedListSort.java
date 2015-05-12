@@ -23,9 +23,13 @@ public class DoubleLinkedListSort
 			try
 			{
 				if( added++ < middle )
+				{
 					left.insertFirst( Ts.getElementAtPosition( i ) );
+				}
 				else
+				{
 					right.insertFirst( Ts.getElementAtPosition( i ) );
+				}
 			}
 			catch( DoubleLinkedListException d )
 			{

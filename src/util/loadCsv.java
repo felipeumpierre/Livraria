@@ -18,10 +18,10 @@ public class loadCsv
 		{
 			itemRepo = item;
 			
-			Scanner input = new Scanner( new File( "/home/felipe/workspace/Livraria2/src/util/dados.txt" ) );
+			Scanner input = new Scanner( new File( "/home/felipe/workspace/Livraria/src/util/dados.txt" ) );
 			input.useDelimiter( ";" );
 			
-			while( input.nextLine() != null && input.hasNextLine() )
+			while( input.hasNextLine() )
 			{
 				String line = input.next();
 				

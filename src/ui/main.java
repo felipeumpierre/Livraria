@@ -31,7 +31,7 @@ public class main
 			System.out.println( String.format( "| %-24s |", "0- Sair" ) );
 			System.out.println( "+--------------------------+" );
 			
-			opt = Console.scanInt( "Escolha uma op��o: " );
+			opt = Console.scanInt( "Escolha uma opcao: " );
 			
 			switch( opt )
 			{
@@ -39,7 +39,7 @@ public class main
 				case 2: new ItemUI( item ).run(); break;
 				case 3: new CartUI( client, item ).run(); break;
 				case 0: break;
-				default: System.out.println( "\n- Op��o inv�lida!" ); break;
+				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
 		}
 		while( opt != 0 );		

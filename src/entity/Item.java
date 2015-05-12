@@ -59,7 +59,10 @@ public class Item implements Comparable<Item>
 		StringBuilder result = new StringBuilder();
 		
 		result.append( String.format( "| %-2s ", this.getId() ) );
-		result.append( String.format( "| %-20s ", this.getName() ) );
+		result.append( String.format( "| %-30.30s... ", this.getName() ) );
+		
+		if( null != this.getDescription() )
+			result.append( String.format( "| %-20s ", this.getDescription() ) );
 		
 		return result.toString();
 	}

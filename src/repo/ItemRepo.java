@@ -26,17 +26,17 @@ public class ItemRepo
 		items = new DoubleLinkedList<Item>();
 		
 		header.put( "item", String.format( "| %-2s | %-21s", "#", "Item" ) );
-		header.put( "book", String.format( "| %-6s |%n", "ISBN" ) );
+		header.put( "book", String.format( "| %-6s | %-20s %n", "ISBN", "Autor(es)" ) );
 		header.put( "eletronic", String.format( "| %-15s |%n", "Marca" ) );
-		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "G�nero", "Ano" ) );
+		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "Genero", "Ano" ) );
 		
-		divisors.put( "item", String.format( "+----+----------------------" ) );
-		divisors.put( "book", String.format( "+--------+%n" ) );
+		divisors.put( "item", String.format( "+----+-----------------------------------" ) );
+		divisors.put( "book", String.format( "+---------------+------------------------%n" ) );
 		divisors.put( "eletronic", String.format( "+-----------------+%n" ) );
 		divisors.put( "dvd", String.format( "+---------------------+------+%n" ) );
 		
 		none.put( "book", String.format( "| %-34s |%n", "Nenhum livro foi encontrado" ) );
-		none.put( "eletronic", String.format( "| %-44s |%n", "Nenhum eletr�nico foi encontrado" ) );
+		none.put( "eletronic", String.format( "| %-44s |%n", "Nenhum eletronico foi encontrado" ) );
 		none.put( "dvd", String.format( "| %-54s |%n", "Nenhum dvd foi encontrado" ) );
 		
 		populate();
@@ -262,14 +262,8 @@ public class ItemRepo
 	}
 
 	private void populate()
-	{	
-		/* this.addItem( new Dvd( "A", "2015", "Drama", 2 ) );
-		this.addItem( new Dvd( "C", "2015", "Drama", 2 ) );
-		this.addItem( new Dvd( "D", "2015", "Drama", 2 ) );
-		this.addItem( new Dvd( "E", "2015", "Drama", 2 ) );
-		this.addItem( new Dvd( "B", "2015", "Drama", 2 ) ); */
-		
-		this.addItem( new Eletronic( "M�quina de lavar", "Brastemp", 2 ) );
+	{
+		this.addItem( new Eletronic( "Maquina de lavar", "Brastemp", 2 ) );
 		this.addItem( new Eletronic( "Geladeira", "Brastemp", 3 ) );
 		this.addItem( new Eletronic( "Cara", "Apple", 1 ) );
 		this.addItem( new Eletronic( "Notebook", "Apple", 1 ) );

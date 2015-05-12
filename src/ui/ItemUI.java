@@ -38,6 +38,7 @@ public class ItemUI
 			System.out.println( String.format( "| %-24s |", "2- Listar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Buscar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "4- Reordenar produtos" ) );
+			System.out.println( String.format( "| %-24s |", "5- Add/Editar descrição" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
@@ -48,7 +49,8 @@ public class ItemUI
 				case 1: categoryOption( "add" ); break;
 				case 2: categoryOption( "list" ); break;
 				case 3: categoryOption( "search" ); break;
-				case 4: categoryOption( "reorder" );; break;
+				case 4: categoryOption( "reorder" ); break;
+				case 5: categoryOption( "description" ); break;
 				case 0: break;
 				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
@@ -83,6 +85,7 @@ public class ItemUI
 						case "list": list( "book" ); break;
 						case "search": search( "book" ); break;
 						case "reorder": reorder( "book" ); break;
+						case "description": description( "book" ); break;
 					}
 					
 					break;
@@ -93,6 +96,7 @@ public class ItemUI
 						case "list": list( "eletronic" ); break;
 						case "search": search( "eletronic" ); break;
 						case "reorder": reorder( "eletronic" ); break;
+						case "description": description( "eletronic" ); break;
 					}
 					
 					break;
@@ -103,6 +107,7 @@ public class ItemUI
 						case "list": list( "dvd" ); break;
 						case "search": search( "dvd" ); break;
 						case "reorder": reorder( "dvd" ); break;
+						case "description": description( "dvd" ); break;
 					}
 					
 					break;
@@ -278,24 +283,7 @@ public class ItemUI
 	{
 		System.out.println( "\n--- Buscar produtos ---\n" );
 		
-		String keywords = "";
-		
-		if( "book" == instance )
-		{
-			keywords = "ISBN";
-		}
-		else if( "eletronic" == instance )
-		{
-			keywords = "Nome/Marca";
-		}
-		else if( "dvd" == instance )
-		{
-			keywords = "Titulo/Produtora";
-		}
-		
-		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );
-		
-		DoubleLinkedList<Item> resultSearch = this.item.searchFor( instance, search );
+		DoubleLinkedList<Item> resultSearch = this.searchEngine( instance );
 		
 		if( null != resultSearch )
 		{
@@ -317,7 +305,7 @@ public class ItemUI
 			
 			if( s.length() == 0 )
 			{
-				s.append( "\n- Nenhum resultado foi encontrado para a busca: " + search );
+				s.append( "\n- Nenhum resultado foi encontrado" );
 			}
 			
 			System.out.println( s.toString() );
@@ -327,5 +315,61 @@ public class ItemUI
 		
 		// return to the first menu of products
 		run();
+	}
+	
+	private void description( String instance )
+	{
+		System.out.println( "\n--- Adição/Edição produtos ---\n" );
+		
+		DoubleLinkedList<Item> resultSearch = this.searchEngine( instance );
+		
+		if( null != resultSearch )
+		{
+			if( resultSearch.listSize() > 1 )
+			{
+				System.out.println( "\n- Sua busca retornou mais de um resultado. Por isso, não será possível adicionar/editar a descrição." );
+			}
+			else
+			{
+				try
+				{
+					System.out.println( "Item encontrado: " + resultSearch.getElementAtPosition( 0 ).getName() );
+					
+					String description = Console.scanString( "Informe a descricao: " );
+					resultSearch.getElementAtPosition( 0 ).setDescription( description );
+				}
+				catch( DoubleLinkedListException d )
+				{
+					
+				}
+			}
+		}
+		
+		System.out.println( "\n--- Fim da adição/edição de produtos ---" );
+		
+		// return to the first menu of products
+		run();
+	}
+	
+	private DoubleLinkedList<Item> searchEngine( String instance )
+	{
+		String keywords = "";
+		
+		if( "book" == instance )
+		{
+			keywords = "ISBN";
+		}
+		else if( "eletronic" == instance )
+		{
+			keywords = "Nome/Marca";
+		}
+		else if( "dvd" == instance )
+		{
+			keywords = "Titulo/Produtora";
+		}
+		
+		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );
+		
+		return this.item.searchFor( instance, search );
 	}
 }

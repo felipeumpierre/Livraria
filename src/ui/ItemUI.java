@@ -38,7 +38,6 @@ public class ItemUI
 			System.out.println( String.format( "| %-24s |", "2- Listar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Buscar produtos" ) );
 			System.out.println( String.format( "| %-24s |", "4- Reordenar produtos" ) );
-			System.out.println( String.format( "| %-24s |", "5- Add/Editar descrição" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
 			System.out.println( "+--------------------------+" );
 			
@@ -50,7 +49,6 @@ public class ItemUI
 				case 2: categoryOption( "list" ); break;
 				case 3: categoryOption( "search" ); break;
 				case 4: categoryOption( "reorder" ); break;
-				case 5: categoryOption( "description" ); break;
 				case 0: break;
 				default: System.out.println( "\n- Opcao invalida!" ); break;
 			}
@@ -271,8 +269,8 @@ public class ItemUI
 		System.out.println( "\n--- Reordenar produtos ---\n" );	
 		
 		this.item.sort();
-		System.out.println( this.item.toString( instance ) );
 		
+		System.out.println( this.item.toString( instance ) );		
 		System.out.println( "--- Fim da reordem de produtos ---" );
 		
 		// return to the first menu of products

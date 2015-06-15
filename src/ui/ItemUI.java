@@ -66,7 +66,14 @@ public class ItemUI
 		{
 			System.out.println( "\nEscolha uma categoria." );
 			System.out.println( "+--------------------------+" );
-			System.out.println( String.format( "| %-24s |", "1- Livros" ) );
+			
+			// livros usa HASHTABLE
+			// não pode ser ordenado
+			if( type != "reorder" )
+			{
+				System.out.println( String.format( "| %-24s |", "1- Livros" ) );
+			}
+			
 			System.out.println( String.format( "| %-24s |", "2- Eletronicos" ) );
 			System.out.println( String.format( "| %-24s |", "3- Dvds" ) );
 			System.out.println( String.format( "| %-24s |", "0- Voltar" ) );
@@ -172,7 +179,7 @@ public class ItemUI
 		}
 		while( valid == false );
 		
-		this.item.addItem( new Book( name, isbn, stock ) );
+		this.item.addItemHash( isbn, new Book( name, isbn, stock ) );
 		
 		System.out.println( "\nLivro " + name + " cadastrado com sucesso!" );		
 		System.out.println( "\n--- Fim de cadastro de livro ---" );

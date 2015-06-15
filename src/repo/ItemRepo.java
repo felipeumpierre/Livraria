@@ -3,6 +3,7 @@ package repo;
 import list.DoubleLinkedList;
 import list.DoubleLinkedListException;
 import list.DoubleLinkedListSort;
+import list.HashTable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,14 +20,16 @@ public class ItemRepo
 	Map<String, String> none = new HashMap<String, String>();
 	
 	private DoubleLinkedList<Item> items;
+	private HashTable<Item> hashTable;
 	private int id = 1;
 	
 	public ItemRepo()
 	{
 		items = new DoubleLinkedList<Item>();
+		hashTable = new HashTable<Item>();
 		
 		header.put( "item", String.format( "| %-2s | %-21s", "#", "Item" ) );
-		header.put( "book", String.format( "| %-6s | %-20s %n", "ISBN", "Autor(es)" ) );
+		header.put( "book", String.format( "| %-6s | %-70s %n", "ISBN", "Mais informaçoes" ) );
 		header.put( "eletronic", String.format( "| %-15s |%n", "Marca" ) );
 		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "Genero", "Ano" ) );
 		
@@ -62,10 +65,38 @@ public class ItemRepo
 		
 		return 0;
 	}
+
+	/**
+	 * Apenas para Book
+	 * 
+	 * @param String isbn
+	 * @param Item item
+	 * @return HashTable<Item>
+	 */
+	public HashTable<Item> addItemHash( String isbn, Item item )
+	{
+		if( null != item )
+		{
+			item.setId( this.id );
+
+			hashTable.put( isbn, item );
+			
+			this.id++;
+			
+			return hashTable;
+		}
+		
+		return null;
+	}
+
+	public HashTable<Item> hashTable()
+	{
+		return this.hashTable;
+	}
 	
 	public Item getItemById( int id )
 	{
-		if( id > 0 && id <= items.listSize() )
+		if( id > 0 )
 		{
 			for( int i = 0; i < items.listSize(); i++ )
 			{
@@ -84,7 +115,7 @@ public class ItemRepo
 				}
 			}
 		}
-		
+
 		return null;
 	}
 	
@@ -190,17 +221,25 @@ public class ItemRepo
 		eletronic.append( generateHeaderTable( "eletronic" ) );
 		dvd.append( generateHeaderTable( "dvd" ) );
 		
+		HashTable<Item> hash = this.hashTable;
+		
+		for( int i = 0; i < hash.size(); i++ )
+		{
+			Book bookHash = (Book) hash.find( i );
+			
+			if( bookHash instanceof Book )
+			{
+				_book.append( bookHash.toString() );
+			}
+		}
+		
 		for( int i = 0; i < items.listSize(); i++ )
 		{
 			try
 			{
 				Item item = items.getElementAtPosition( i );
 				
-				if( item instanceof Book )
-				{
-					_book.append( item.toString() );
-				}
-				else if( item instanceof Eletronic )
+				if( item instanceof Eletronic )
 				{
 					_eletronic.append( item.toString() );
 				}

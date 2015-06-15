@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import list.HashTable;
 import entity.Book;
 import entity.Dvd;
+import entity.Item;
 import repo.ItemRepo;
 
 public class loadCsv
@@ -18,7 +20,7 @@ public class loadCsv
 		{
 			itemRepo = item;
 			
-			Scanner input = new Scanner( new File( "/home/felipe/workspace/Livraria/src/util/dados.txt" ) );
+			Scanner input = new Scanner( new File( "/Users/felipeumpierre/Documents/workspace/Livraria/src/util/dados.csv" ) );
 			input.useDelimiter( ";" );
 			
 			while( input.hasNextLine() )
@@ -50,14 +52,21 @@ public class loadCsv
 		Scanner line = new Scanner( string );
 		line.useDelimiter( ";" );
 		
-		int id = itemRepo.addItem( new Book( line.next(), line.next(), 2 ) );
-		Book book = (Book)itemRepo.getItemById( id );
+		String title = line.next();
+		String isbn = line.next();
+		
+		HashTable<Item> hashTable = new HashTable<Item>();
+		hashTable = itemRepo.addItemHash( isbn, new Book( title, isbn, 2 ) );
+		
+		Book book = (Book)hashTable.find( isbn );
 		
 		while( line.hasNext() )
 		{
 			book.addAuthor( line.next() );
 			book.setDescription( book.getName() + " - " + book.getIsbn() );
 		}
+		
+		hashTable.put( isbn, book );
 		
 		line.close();
 	}

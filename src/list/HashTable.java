@@ -28,15 +28,13 @@ public class HashTable<T>
 	}
 	
 	public void put( String key, T value )
-	{
+	{		
 		if( this.size > ( this.hash.length * LOAD_FACTOR ) )
 		{
 			expand();
 		}
 		
-		int hashCode = key( key );
-
-		this.hash[ hashCode ] = new HashEntry( key, value );
+		this.hash[ this.key( key ) ] = new HashEntry( key, value );
 		
 		++this.size;
 	}
@@ -50,6 +48,7 @@ public class HashTable<T>
 	{
 		if( null != this.hash[ index ] )
 		{
+			@SuppressWarnings( "unchecked" )
 			HashEntry hashEntry = (HashEntry) this.hash[ index ];
 			
 			return hashEntry.value;
@@ -62,6 +61,7 @@ public class HashTable<T>
 	{
 		int hashCode = key( key );
 		
+		@SuppressWarnings( "unchecked" )
 		HashEntry object = (HashEntry) this.hash[ hashCode ];
 		
 		if( null != object.value )
@@ -85,31 +85,26 @@ public class HashTable<T>
 		{
 			if( null != old[ i ] )
 			{
+				@SuppressWarnings( "unchecked" )
 				HashEntry hashEntry = (HashEntry) old[ i ];
 				
-				int hashCode = key( hashEntry.key );
-
-				this.hash[ hashCode ] = hashEntry;
+				this.put( hashEntry.key, hashEntry.value );
 			}
 		}
 	}
 	
 	private int key( String key )
 	{
-		int h = 0;
+		int hashVal = 0;
 		
-		if( h == 0 ) 
-		{
-			int off = 0;
-            char val[] = key.toCharArray();
-            int len = key.length();
-
-            for( int i = 0; i < len; i++ )
-            {
-            	h = 2 * h + val[ off++ ];
-            }
-		}
+		for( int i = 0; i < key.length( ); i++ )
+            hashVal = 9 * hashVal + key.charAt( i );
 		
-		return Math.abs( key.hashCode() ) % this.hash.length;
+		hashVal %= this.hash.length;
+		
+        if( hashVal < 0 )
+            hashVal += this.hash.length;
+		
+		return hashVal;
 	}
 }

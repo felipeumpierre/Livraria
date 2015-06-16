@@ -20,7 +20,8 @@ public class loadCsv
 		{
 			itemRepo = item;
 			
-			Scanner input = new Scanner( new File( "/Users/felipeumpierre/Documents/workspace/Livraria/src/util/dados.csv" ) );
+			// Scanner input = new Scanner( new File( "/Users/felipeumpierre/Documents/workspace/Livraria/src/util/dados.csv" ) );
+			Scanner input = new Scanner( new File( "C:/Users/Felipe/workspace/Livraria/src/util/dados.txt" ) );
 			input.useDelimiter( ";" );
 			
 			while( input.hasNextLine() )

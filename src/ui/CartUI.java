@@ -50,9 +50,11 @@ public class CartUI
 		
 		String cpf;
 		
+		System.out.println( "Para sair, basta informar 0 (zero)" );
+		
 		do
 		{
-			cpf = Console.scanString( "0- Sair | Informe o CPF do cliente: " );
+			cpf = Console.scanString( "Informe o CPF do cliente: " );
 			
 			if( !cpf.equalsIgnoreCase( "0" ) )
 			{
@@ -75,13 +77,14 @@ public class CartUI
 	
 	public void finishCart()
 	{
-		System.out.println( "\n--- Finalizando carrinho ---\n" );
+		System.out.println( "\n--- Finalizando carrinho ---\n" );		
+		System.out.println( "Para sair, basta informar 0 (zero)" );
 		
 		String cpf;
 		
 		do
 		{
-			cpf = Console.scanString( "0- Sair | Informe o CPF do cliente: " );
+			cpf = Console.scanString( "Informe o CPF do cliente: " );
 			
 			if( !cpf.equalsIgnoreCase( "0" ) )
 			{
@@ -91,7 +94,7 @@ public class CartUI
 				{
 					if( cli.getCart().finish() )
 					{
-						System.out.println( "\nCarrinho finalizado com sucesso!" );
+						System.out.println( "\nCarrinho de " + cli.getName() + " finalizado com sucesso!" );
 					}
 				}
 				else
@@ -109,11 +112,16 @@ public class CartUI
 	{
 		System.out.println( "\n--- Adicinando produtos ao carrinho ---\n" );
 		
+		System.out.println( "Você irá adicionar produtos para " + cli.getName() );
+		System.out.println( "\n" );
+		
 		int id = 0;
+		
+		System.out.println( "Para sair, basta informar 0 (zero)" );
 		
 		do
 		{
-			id = Console.scanInt( "0- Sair | Escolha o id do produto: " );
+			id = Console.scanInt( "Escolha o id do produto: " );
 			
 			Item i = this.item.getItemById( id );
 			
@@ -124,10 +132,16 @@ public class CartUI
 					System.out.println( "\nProduto\n" + i.toString() + "Adicionado com sucesso!\n" );
 					System.out.println( cli.getCart().toString() );
 				}
-			}	
+			}
+			else
+			{
+				System.out.println( "- Produto nao encontrado!\n" );
+			}
 		}
 		while( id != 0 );
 		
 		System.out.println( "\n--- Fim de adicao de produtos ao carrinho ---" );
+		
+		run();
 	}
 }

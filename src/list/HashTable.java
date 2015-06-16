@@ -86,9 +86,9 @@ public class HashTable<T>
 			if( null != old[ i ] )
 			{
 				HashEntry hashEntry = (HashEntry) old[ i ];
-				System.out.println( hashEntry.key );
-				int hashCode = key( hashEntry.key );
 				
+				int hashCode = key( hashEntry.key );
+
 				this.hash[ hashCode ] = hashEntry;
 			}
 		}
@@ -110,6 +110,6 @@ public class HashTable<T>
             }
 		}
 		
-		return Math.abs( h ) % this.hash.length;
+		return Math.abs( key.hashCode() ) % this.hash.length;
 	}
 }

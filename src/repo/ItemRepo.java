@@ -33,7 +33,7 @@ public class ItemRepo
 		header.put( "eletronic", String.format( "| %-15s |%n", "Marca" ) );
 		header.put( "dvd", String.format( "| %-19s | %-4s |%n", "Genero", "Ano" ) );
 		
-		divisors.put( "item", String.format( "+----+-----------------------------------" ) );
+		divisors.put( "item", String.format( "+------+-----------------------------------" ) );
 		divisors.put( "book", String.format( "+---------------+------------------------%n" ) );
 		divisors.put( "eletronic", String.format( "+-----------------+%n" ) );
 		divisors.put( "dvd", String.format( "+---------------------+------+%n" ) );
@@ -198,6 +198,18 @@ public class ItemRepo
 		return searchResult;
 	}
 
+	public Item searchFromHashTable( String search )
+	{
+		Item item = this.hashTable.find( search );
+		
+		if( item instanceof Item )
+		{
+			return item;
+		}
+		
+		return null;
+	}
+	
 	public DoubleLinkedList<Item> sort()
 	{
 		this.items = DoubleLinkedListSort.sort( this.items );

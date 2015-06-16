@@ -288,33 +288,49 @@ public class ItemUI
 	{
 		System.out.println( "\n--- Buscar produtos ---\n" );
 		
-		DoubleLinkedList<Item> resultSearch = this.searchEngine( instance );
+		StringBuilder s = new StringBuilder();
 		
-		if( null != resultSearch )
-		{
-			StringBuilder s = new StringBuilder();
+		if( "book" != instance )
+		{		
+			DoubleLinkedList<Item> resultSearch = this.searchEngine( instance );
 			
-			for( int i = 0; i < resultSearch.listSize(); i++ )
-			{
-				try
+			if( null != resultSearch )
+			{				
+				for( int i = 0; i < resultSearch.listSize(); i++ )
 				{
-					Item item = resultSearch.getElementAtPosition( i );
-					
-					s.append( item.toString() );
+					try
+					{
+						Item item = resultSearch.getElementAtPosition( i );
+						
+						s.append( item.toString() );
+					}
+					catch( DoubleLinkedListException d )
+					{
+						
+					}
 				}
-				catch( DoubleLinkedListException d )
+				
+				if( s.length() == 0 )
 				{
-					
+					s.append( "\n- Nenhum resultado foi encontrado" );
 				}
 			}
+		}
+		else
+		{
+			Item item = this.searchEngine();
 			
-			if( s.length() == 0 )
+			if( null != item )
+			{
+				s.append( item.toString() );
+			}
+			else
 			{
 				s.append( "\n- Nenhum resultado foi encontrado" );
 			}
-			
-			System.out.println( s.toString() );
 		}
+		
+		System.out.println( s.toString() );
 		
 		System.out.println( "\n--- Fim da busca de produtos ---" );
 		
@@ -360,11 +376,7 @@ public class ItemUI
 	{
 		String keywords = "";
 		
-		if( "book" == instance )
-		{
-			keywords = "ISBN";
-		}
-		else if( "eletronic" == instance )
+		if( "eletronic" == instance )
 		{
 			keywords = "Nome/Marca";
 		}
@@ -376,5 +388,12 @@ public class ItemUI
 		String search = Console.scanString( "\nBuscar por (" + keywords + "): " );
 		
 		return this.item.searchFor( instance, search );
+	}
+	
+	private Item searchEngine()
+	{	
+		String search = Console.scanString( "\nBuscar por (ISBN): " );
+		
+		return this.item.searchFromHashTable( search );
 	}
 }

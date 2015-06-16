@@ -76,7 +76,11 @@ public class loadCsv
 		Scanner line = new Scanner( string );
 		line.useDelimiter( ";" );
 		
-		int id = itemRepo.addItem( new Dvd( line.next(), line.next(), line.next(), 1 ) );
+		String name = line.hasNext() ? line.next() : null;
+		String year = line.hasNext() ? line.next() : null;
+		String genre = line.hasNext() ? line.next() : null;
+		
+		int id = itemRepo.addItem( new Dvd( name, year, genre, 1 ) );
 		Dvd dvd = (Dvd)itemRepo.getItemById( id );
 		
 		dvd.setDescription( dvd.getName() + " (" + dvd.getYear() + ") - " + dvd.getGenre() );
